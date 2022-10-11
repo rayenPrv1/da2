@@ -1,0 +1,562 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <title><%=user.username%></title>
+  
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/css/index.css">
+  
+  <!-- import the webpage's javascript file -->
+</head>  
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+
+<div id="root">
+  <input id="user-id" type="hidden" value="<%=user.id%>">
+  <div class="rtl wrapper theme-6-active pimary-color-pink darkmode">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <ul class="nav navbar-nav navbar-left ">
+        <li>
+          <a id="toggle_nav_btn"class="toggle-left-nav-btn inline-block ml-20"><i class="zmdi zmdi-menu"></i></a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden-xs"><a >الأوامر</a></li>
+        <li class="hidden-xs">
+          <a target="_blank" >الدعم الفني</a>
+        </li>
+        <li>
+          <div class="dropdown  inline-block pull-right dropdowntext">
+            <a class="dropdown__trigger ">
+<img class="flag"alt="ar flag"src="https://probot.io/static/flags/sa.png"/>
+</a>
+            <div class="dropdown__content ">
+              <ul style="height: 50vh; overflow: auto;">
+                
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class=" ">
+        <div class="probot-logo">
+          <div class="react-reveal"style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-1;">
+            <a href="/">
+      <imgclass="brand-img"src="https://probot.io/static/logo1.jpg"alt="brand"/>
+</a>
+          </div>
+        </div>
+      </div>
+      <div class="dramexNav inline-block pull-right"></div>
+    </nav>
+    <div location="[object Object]" computedmatch="[object Object]">
+      <div
+        class="sidebar_root"
+        role="navigation"
+        style="position: absolute; inset: 0px; overflow: hidden;"
+      >
+        <div
+          class="sidebar_main"
+          style="z-index: 2; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out 0s; will-change: transform; overflow-y: auto; right: 0px; transform: translateX(0%); box-shadow: rgba(0, 0, 0, 0.15) -2px 2px 4px;"
+        >
+          <div class="dramex0 fixed-sidebar-left  ">
+            <div class="dramex1 ">
+              <div
+                class="react-reveal"
+                style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+              ></div>
+              <div
+                class="react-reveal"
+                style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+              >
+                <a href="/dashboard"
+                  ><img
+                    alt="Main"
+                    size="60"
+                    name="home"
+                    src="<%=user.avatarUrl(64) %>"
+                    class="user-auth-img img-circle dramex-sideimg dramexactiveimg"
+                /></a>
+              </div>
+              <div
+                class="react-reveal"
+                style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+              ></div>
+              <%guilds.forEach(guild=>{%>
+                <%  if(guild.iconHash) {%>
+                <div
+                class="react-reveal"
+                style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+              >
+                <a href="/servers/<%=guild.id%>"
+                ><img
+                  size="60"
+                  name="<%=guild.name%>"
+                  alt="<%=guild.name%>"
+                  src="<%=guild.iconUrl(64) %>"
+                  class="user-auth-img img-circle dramex-sideimg undefined"
+              /></a>
+            </div>
+            <% } else {%>
+              <div
+              class="react-reveal"
+              style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+            >
+              <a href="/servers/<%=guild.id%>"
+                ><div
+                  aria-label="<%=guild.name%>"
+                  class="img-circle dramex-sideimg undefined UserAvatar UserAvatar--dark"
+                >
+                  <div
+                    class="UserAvatar--inner"
+                    style="line-height: 60px; text-align: center; border-radius: 100%; max-width: 60px; width: 60px; max-height: 60px; height: 60px; background-color: rgb(114, 137, 218);"
+                  >
+                  <%= utils.getAbbreviation(guild.name) %>
+                  </div>
+                </div></a
+              >
+            </div>
+              
+              <%}})%>
+              
+              
+             
+            </div>
+            <div class="dramex2">
+              <div class="slimScrollDiv">
+                <div class="slimScrollDiv">
+                  <ul class="nav navbar-nav side-nav nicescroll-bar ">
+                    <li>
+                      <div class="user-profile text-center">
+                        <img
+                          src="<%=user.avatarUrl(64) %>"
+                          alt="user_auth"
+                          class="guild-avatar img-circle "
+                        />
+                        <div class="dropdown mt-5">
+                          <div class="dropdown-toggle  bg-transparent">
+                            <%=user.username%>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="navigation-header">
+                      <span>عام</span><i class="zmdi zmdi-more"></i>
+                    </li>
+                    <li>
+                      <a class="nav-link active" id="generalTab" aria-current="page" 
+                        ><div class="pull-left">
+                          <i class="zmdi zmdi-eye mr-20"></i
+                          ><span class="right-nav-text">نظرة عامة</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li class="navigation-header">
+                      <span>متاجر الكريدت</span><i class="zmdi zmdi-more"></i>
+                    </li>
+                    <li>
+                      <a class="nav-link" id="profileTab">
+                        <div class="pull-left">
+                          <i class="zmdi zmdi-account-box mr-20"></i
+                          ><span class="right-nav-text"
+                            >خلفيات البروفايل</span
+                          >
+                        </div>
+                        <div class="clearfix"></div
+                      ></a>
+                    </li>
+
+                    <li class="navigation-header">
+                      <span>لائحة المتصدرين</span
+                      ><i class="zmdi zmdi-more"></i>
+                    </li>
+                    <li>
+                 <a class="nav-link" id="toplevleTab">
+                 <div class="pull-left"><i class="fas fa-medal mr-20"></i><span class="right-nav-text">أعلى 100 بواسطة XP</span></div>
+                   <div class="clearfix"></div>
+                 </a>
+                   </li>
+                    <li>
+                      <a class="nav-link" id="topcreditsTab"
+                        ><div class="pull-left">
+                          <i class="fas fa-money-bill-wave mr-20"></i
+                          ><span class="right-nav-text"
+                            >اطنخ 100 مليونير</span
+                          >
+                        </div>
+                        <div class="clearfix"></div
+                      ></a>
+                    </li>
+                    <li class="navigation-header">
+                      <span>اخرى</span><i class="zmdi zmdi-more"></i>
+                    </li>
+                
+                    <li>
+                      <a href="/logout"
+                        ><div class="pull-left">
+                          <i class="fas fa-sign-out-alt mr-20"></i
+                          ><span class="right-nav-text">خروج</span>
+                        </div>
+                        <div class="clearfix"></div
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sidebar_overlay"
+          role="presentation"
+          tabindex="0"
+          style="z-index: 1; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s; background-color: rgba(0, 0, 0, 0.3);"
+        ></div>
+        <div
+          class="sidebar_content"
+          style="position: absolute; inset: 0px 350px 0px 0px; overflow-y: scroll; transition: left 0.3s ease-out 0s, right 0.3s ease-out 0s;">
+      <section id="general">
+        <div class="main-bad page-wrapper inside-panel">
+          <div class="container-fluid">
+            <div>
+              <div class="pt-25 row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="panel panel-default card-view pa-0 bg-gradient">
+                    <div class="panel-wrapper collapse in">
+                      <div class="panel-body pa-0">
+                        <div class="sm-data-box">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
+                                <span class="weight-500 uppercase-font block txt-light">credits</span><span class="txt-light block counter"><span class="counter-anim"><%=userdata.data.credits%></span></span>
+                              </div>
+                              <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
+                                <i class="fas fa-money-check-alt data-right-rep-icon txt-light"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="panel panel-default card-view pa-0 bg-gradient1">
+                    <div class="panel-wrapper collapse in">
+                      <div class="panel-body pa-0">
+                        <div class="sm-data-box">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
+                                <span class="weight-500 uppercase-font block txt-light">level</span><span class="txt-light block counter"><span class="counter-anim"><%=userdata.level.lvl%></span></span>
+                              </div>
+                              <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
+                                <i class="far fa-star data-right-rep-icon txt-light"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="panel panel-default card-view pa-0 bg-gradient2">
+                    <div class="panel-wrapper collapse in">
+                      <div class="panel-body pa-0">
+                        <div class="sm-data-box">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
+                                <span class="weight-500 uppercase-font block txt-light">rank</span><span class="txt-light block counter"><span class="counter-anim"><%=rank%></span></span>
+                              </div>
+                              <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
+                                <i class="fas fa-award data-right-rep-icon txt-light"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div class="panel panel-default card-view pa-0 bg-gradient3">
+                    <div class="panel-wrapper collapse in">
+                      <div class="panel-body pa-0">
+                        <div class="sm-data-box">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
+                                <span class="weight-500 uppercase-font block txt-light">REP</span><span class="txt-light block counter"><span class="counter-anim">+<%=userdata.data.rep%></span></span>
+                              </div>
+                              <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
+                                <i class="far fa-thumbs-up data-right-rep-icon txt-light"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="center mt-25 block">
+              © 2021 ProBot | Not affiliated with <i class="fab fa-discord"></i>
+            </div>
+          </div>
+         </div>
+         </div>
+       </div>
+  </section>
+  
+    <!--profile-->
+  <section style="display: none"  id="profile">
+    <div class="page-wrapper inside-panel">
+      <div class="container-fluid">
+        <div class="pt-25">
+          <div class="tab-struct custom-tab-1 mt-40 pb-25">
+            <ul role="tablist" class="nav nav-tabs" id="myTabs_7">
+              <li class="active"><a>الكل (307)</a></li>
+    
+              <li class="pull-right ml-10 mr-10 mt-10 mb-15">
+              
+              </li>
+              <li class="pull-right pr-20 bgCheck ml-10 mr-10 mt-10 mb-15">
+               
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="bglist">
+            <%var cd = profile.map((pro)=>({id:pro.id,img:`https://probot.media/store/${pro.filename}`}))%>
+            <%cd.forEach((badr)=>{%>
+              <%if(userdata.profile.background == badr.img) {%>
+              <div class="bg-item bg-item-active" name="<%=badr.img%>">
+                <div id="p_143" class="bg-price">free</div>
+                <div id="p_143" class="bg-owned">مملوك</div>
+                <a><img class="bg-img" src="<%=badr.img%>"/>
+                  <img class="bg-img imgload" src="https://cdn.discordapp.com/attachments/819530298119290920/834891982379024416/loading-gif-png-5.gif" style=" position: absolute; left: 0px; top: 0px;display: none;">
+                </a>
+              </div>
+        <%}else{%>
+          <div class="bg-item" name="<%=badr.img%>">
+            <div id="p_143" class="bg-price">free</div>
+            <div id="p_143" class="bg-owned">مملوك</div>
+            <a><img class="bg-img" src="<%=badr.img%>"/>
+              <img class="bg-img imgload" src="https://cdn.discordapp.com/attachments/819530298119290920/834891982379024416/loading-gif-png-5.gif" style=" position: absolute; left: 0px; top: 0px;display: none;">
+            </a>
+          </div>
+           <% }})%>
+          </div>
+        </div>
+        <div class="center mt-25 block">
+          © 2021 ProBot | Not affiliated with <i class="fab fa-discord"></i>
+        </div>
+      </div>
+    </div>
+    <!---------test-->
+    <div class="styles_overlay__CLSq- undefined badrdone" style="display: none;">
+      <div class="styles_modal__gNwvD smallModal bg-modal">
+        <div class="Modalhead"><h5>Artwork Painting</h5></div>
+        <div class="row modalDram">
+          <center class="mb-20">
+            <div>
+              <img
+                class="showimg"
+                src=""
+              />
+            </div>
+            <div class="checkbox checkbox-primary">
+            </div>
+          </center>
+          <div class="bg-price-modal-footer">
+            <h5 class="mt-20">Price $0</h5>
+            <div class="mt-20 btn btn-success btn-rounded ld-over-inverse">Use
+              <div class="ld ld-ring ld-spin"></div>
+
+            </div>
+          </div>
+        </div>
+        <button class="styles_closeButton__20ID4">
+          <svg
+            class="styles_closeIcon__1QwbI"
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 36 36"
+          >
+            <path
+              d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+        <!---------test-->
+
+      </section>
+    <!--profiletags-->
+              <!--topxp-->
+      <section id="toplevle" style="display:none">
+                <div class="page-wrapper inside-panel top-100badr">
+          <div class="container-fluid">
+            <div class="pt-25">
+              <!---topuser-->
+      
+   <%top100lvl.forEach((top,index)=>{%>
+    <%if(index===0){%>
+    <div class="top-container">
+        <div class="top-1">
+          <div class="top-user-info">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjM5MCIgdmlld0JveD0iMCAwIDUxMiAzOTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik05MSAzMDBWMzkwSDQyMVYzMDBIOTFaIiBmaWxsPSIjRkY5REQ2Ii8+CjxwYXRoIGQ9Ik0yNTYgMzAwSDQyMVYzOTBIMjU2VjMwMFoiIGZpbGw9IiNGRjY2QkUiLz4KPHBhdGggZD0iTTQyMi41IDE2OS4xOTlMMzk4LjE5OSAyMTYuNTk4SDExMy44MDFMODkuNSAxNjkuMTk5QzEyNS4xOTkgMTE5LjY5OSAxODcuMzAxIDkwIDI1NiA5MEMzMjQuNjk5IDkwIDM4Ni44MDEgMTE5LjY5OSA0MjIuNSAxNjkuMTk5WiIgZmlsbD0iI0Y3MkFBMCIvPgo8cGF0aCBkPSJNNDIyLjUgMTY5LjE5OUwzOTguMTk5IDIxNi41OThIMjU2VjkwQzMyNC42OTkgOTAgMzg2LjgwMSAxMTkuNjk5IDQyMi41IDE2OS4xOTlaIiBmaWxsPSIjREEyQThFIi8+CjxwYXRoIGQ9Ik00NzcuMTAyIDEzOS4xOTlMNDIxIDMzMEg5MUwzNC44OTg0IDEzOS4xOTlMNzIuNjk5MiAxMjQuODAxQzg5LjgwMDggMTU3LjUgMTIyLjUgMTc2LjY5OSAxNDkuMTk5IDE4MEgxNjQuODAxQzE5OS4zMDEgMTc0LjYwMiAyMjUuMDk4IDEyMS44MDEgMjM1LjYwMiA3MS4zOTg0SDI3Ni40MDJDMjg2LjkwMiAxMjEuODAxIDMxMi43MDMgMTc0LjYwMiAzNDcuMTk5IDE4MEgzNjIuODAxQzM4OS41IDE3Ni42OTkgNDIyLjE5OSAxNTcuNSA0MzkuMzAxIDEyNC44MDFMNDc3LjEwMiAxMzkuMTk5WiIgZmlsbD0iI0Y1OTRDQyIvPgo8cGF0aCBkPSJNNDc3LjEwMiAxMzkuMTk5TDQyMSAzMzBIMjU2VjcxLjM5ODRIMjc2LjM5OEMyODYuOTAyIDEyMS44MDEgMzEyLjY5OSAxNzQuNjAyIDM0Ny4xOTkgMTgwSDM2Mi44MDFDMzg5LjUgMTc2LjY5OSA0MjIuMTk5IDE1Ny41IDQzOS4zMDEgMTI0LjgwMUw0NzcuMTAyIDEzOS4xOTlaIiBmaWxsPSIjRkY1Q0JBIi8+CjxwYXRoIGQ9Ik00NiAxNTBDMjEuMTg3NSAxNTAgMCAxMjkuODEyIDAgMTA1QzAgODAuMTg3NSAyMS4xODc1IDYwIDQ2IDYwQzcwLjgxMjUgNjAgOTEgODAuMTg3NSA5MSAxMDVDOTEgMTI5LjgxMiA3MC44MTI1IDE1MCA0NiAxNTBaIiBmaWxsPSIjRkE4Q0NCIi8+CjxwYXRoIGQ9Ik00NjYgMTUwQzQ0MS4xODggMTUwIDQyMSAxMjkuODEyIDQyMSAxMDVDNDIxIDgwLjE4NzUgNDQxLjE4OCA2MCA0NjYgNjBDNDkwLjgxMiA2MCA1MTIgODAuMTg3NSA1MTIgMTA1QzUxMiAxMjkuODEyIDQ5MC44MTIgMTUwIDQ2NiAxNTBaIiBmaWxsPSIjRkY1Q0JBIi8+CjxwYXRoIGQ9Ik0yNTYgMEMyMzEuMDk4IDAgMjExIDIwLjA5NzcgMjExIDQ1QzIxMSA2OS44OTg0IDIzMS4wOTggOTAgMjU2IDkwQzI4MC45MDIgOTAgMzAxIDY5Ljg5ODQgMzAxIDQ1QzMwMSAyMC4wOTc3IDI4MC45MDIgMCAyNTYgMFoiIGZpbGw9IiNGRjgzQ0EiLz4KPHBhdGggZD0iTTI1NiAxNzMuNjk5TDIwNC42OTkgMjI1TDI1NiAyNzYuMzAxTDMwNy4zMDEgMjI1TDI1NiAxNzMuNjk5WiIgZmlsbD0iI0Y3MkVBMSIvPgo8cGF0aCBkPSJNMzQ2IDIzMy43ODVMMzY3LjIxMSAyNTQuOTk2TDM0NiAyNzYuMjA3TDMyNC43ODkgMjU0Ljk5NkwzNDYgMjMzLjc4NVoiIGZpbGw9IiNEQTJBOEUiLz4KPHBhdGggZD0iTTE2NiAyMzMuNzg1TDE4Ny4yMTEgMjU0Ljk5NkwxNjYgMjc2LjIwN0wxNDQuNzg5IDI1NC45OTZMMTY2IDIzMy43ODVaIiBmaWxsPSIjRjcyRUExIi8+CjxwYXRoIGQ9Ik0yNTYgOTBWMEMyODAuOTAyIDAgMzAxIDIwLjA5NzcgMzAxIDQ1QzMwMSA2OS44OTg0IDI4MC45MDIgOTAgMjU2IDkwWiIgZmlsbD0iI0ZGNUNCQSIvPgo8cGF0aCBkPSJNMzA3LjMwMSAyMjVMMjU2IDI3Ni4zMDFWMTczLjY5OUwzMDcuMzAxIDIyNVoiIGZpbGw9IiNEQTJBOEUiLz4KPC9zdmc+Cg==" class="top-one-crown" id="top-one-crown-id"/>
+            <img width="100" src="<%=top.userimg%>" alt="<%=top.user%>" class="top-1-username-avatar" />
+            <h5 class="top-username"><%=top.user%></h5>
+          </div>
+          <div class="top-user-levels-credits">
+            <img class="xp-or-credits-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNTYgNTEyQzM5Ny4zODUgNTEyIDUxMiAzOTcuMzg1IDUxMiAyNTZDNTEyIDExNC42MTUgMzk3LjM4NSAwIDI1NiAwQzExNC42MTUgMCAwIDExNC42MTUgMCAyNTZDMCAzOTcuMzg1IDExNC42MTUgNTEyIDI1NiA1MTJaIiBmaWxsPSIjRkZGQkU0Ii8+CjxwYXRoIGQ9Ik0yNTYgNDgwLjM3M0MzNzkuOTE4IDQ4MC4zNzMgNDgwLjM3MyAzNzkuOTE4IDQ4MC4zNzMgMjU2QzQ4MC4zNzMgMTMyLjA4MiAzNzkuOTE4IDMxLjYyNyAyNTYgMzEuNjI3QzEzMi4wODIgMzEuNjI3IDMxLjYyNyAxMzIuMDgyIDMxLjYyNyAyNTZDMzEuNjI3IDM3OS45MTggMTMyLjA4MiA0ODAuMzczIDI1NiA0ODAuMzczWiIgZmlsbD0iI0Y3NDJBQSIvPgo8cGF0aCBkPSJNMzM1LjA4OCA0NS45NjJDMzk3LjY1NyA4NS43NzggNDM5LjE2NyAxNTUuNzM5IDQzOS4xNjcgMjM1LjM5NkM0MzkuMTY3IDM1OS4zMTQgMzM4LjcxMSA0NTkuNzY5IDIxNC43OTMgNDU5Ljc2OUMxODYuOTU1IDQ1OS43NjkgMTYwLjMwMiA0NTQuNjk5IDEzNS43MDUgNDQ1LjQzM0MxNzAuNDcxIDQ2Ny41NTYgMjExLjczOSA0ODAuMzcyIDI1NiA0ODAuMzcyQzM3OS45MTggNDgwLjM3MiA0ODAuMzc0IDM3OS45MTcgNDgwLjM3NCAyNTUuOTk5QzQ4MC4zNzQgMTU5LjkyIDQxOS45ODIgNzcuOTQ0IDMzNS4wODggNDUuOTYyVjQ1Ljk2MloiIGZpbGw9IiNENzFGODkiLz4KPHBhdGggZD0iTTI2My44NzQgODguNTFMMjkzLjQxNCAxNzkuNDI0QzI5Ni44MDggMTg5Ljg3IDMwNi41NDIgMTk2Ljk0MiAzMTcuNTI2IDE5Ni45NDJINDEzLjExOEM0MjEuMTM5IDE5Ni45NDIgNDI0LjQ3MyAyMDcuMjA1IDQxNy45ODUgMjExLjkyTDM0MC42NDkgMjY4LjEwOEMzMzEuNzYzIDI3NC41NjQgMzI4LjA0NSAyODYuMDA3IDMzMS40MzkgMjk2LjQ1M0wzNjAuOTc5IDM4Ny4zNjdDMzYzLjQ1NyAzOTQuOTk1IDM1NC43MjcgNDAxLjMzOCAzNDguMjM4IDM5Ni42MjRMMjcwLjkwMiAzNDAuNDM2QzI2Mi4wMTYgMzMzLjk4IDI0OS45ODQgMzMzLjk4IDI0MS4wOTggMzQwLjQzNkwxNjMuNzYyIDM5Ni42MjRDMTU3LjI3MyA0MDEuMzM4IDE0OC41NDMgMzk0Ljk5NSAxNTEuMDIxIDM4Ny4zNjdMMTgwLjU2MSAyOTYuNDUzQzE4My45NTUgMjg2LjAwNyAxODAuMjM3IDI3NC41NjQgMTcxLjM1MSAyNjguMTA4TDk0LjAxNSAyMTEuOTJDODcuNTI2IDIwNy4yMDYgOTAuODYxIDE5Ni45NDIgOTguODgyIDE5Ni45NDJIMTk0LjQ3NEMyMDUuNDU3IDE5Ni45NDIgMjE1LjE5MiAxODkuODcgMjE4LjU4NiAxNzkuNDI0TDI0OC4xMjYgODguNTFDMjUwLjYwNCA4MC44ODIgMjYxLjM5NiA4MC44ODIgMjYzLjg3NCA4OC41MVY4OC41MVoiIGZpbGw9IiNGRkZCRTQiLz4KPC9zdmc+Cg==" />
+            <div class="top-hover-credits">
+              <p><%= top.lvl %></p>
+              <p class="top-txt-color"><%=top.totxp%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+  <%} if(index<=9&&index!=0){%>
+    <div class="top-container">
+      <h4 class="top-number-10"><%=index+1%></h4>
+      <div class="top-100">
+        <div class="top-user-info">
+          <img
+            width="100"
+            src="<%=top.userimg%>"
+            alt="<%=top.user%>"
+            class="top-username-avatar"
+          />
+          <h5 class="top-username"><%=top.user%></h5>
+        </div>
+        <div class="top-user-levels-credits">
+            <img class="xp-or-credits-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNTYgNTEyQzM5Ny4zODUgNTEyIDUxMiAzOTcuMzg1IDUxMiAyNTZDNTEyIDExNC42MTUgMzk3LjM4NSAwIDI1NiAwQzExNC42MTUgMCAwIDExNC42MTUgMCAyNTZDMCAzOTcuMzg1IDExNC42MTUgNTEyIDI1NiA1MTJaIiBmaWxsPSIjRkZGQkU0Ii8+CjxwYXRoIGQ9Ik0yNTYgNDgwLjM3M0MzNzkuOTE4IDQ4MC4zNzMgNDgwLjM3MyAzNzkuOTE4IDQ4MC4zNzMgMjU2QzQ4MC4zNzMgMTMyLjA4MiAzNzkuOTE4IDMxLjYyNyAyNTYgMzEuNjI3QzEzMi4wODIgMzEuNjI3IDMxLjYyNyAxMzIuMDgyIDMxLjYyNyAyNTZDMzEuNjI3IDM3OS45MTggMTMyLjA4MiA0ODAuMzczIDI1NiA0ODAuMzczWiIgZmlsbD0iI0Y3NDJBQSIvPgo8cGF0aCBkPSJNMzM1LjA4OCA0NS45NjJDMzk3LjY1NyA4NS43NzggNDM5LjE2NyAxNTUuNzM5IDQzOS4xNjcgMjM1LjM5NkM0MzkuMTY3IDM1OS4zMTQgMzM4LjcxMSA0NTkuNzY5IDIxNC43OTMgNDU5Ljc2OUMxODYuOTU1IDQ1OS43NjkgMTYwLjMwMiA0NTQuNjk5IDEzNS43MDUgNDQ1LjQzM0MxNzAuNDcxIDQ2Ny41NTYgMjExLjczOSA0ODAuMzcyIDI1NiA0ODAuMzcyQzM3OS45MTggNDgwLjM3MiA0ODAuMzc0IDM3OS45MTcgNDgwLjM3NCAyNTUuOTk5QzQ4MC4zNzQgMTU5LjkyIDQxOS45ODIgNzcuOTQ0IDMzNS4wODggNDUuOTYyVjQ1Ljk2MloiIGZpbGw9IiNENzFGODkiLz4KPHBhdGggZD0iTTI2My44NzQgODguNTFMMjkzLjQxNCAxNzkuNDI0QzI5Ni44MDggMTg5Ljg3IDMwNi41NDIgMTk2Ljk0MiAzMTcuNTI2IDE5Ni45NDJINDEzLjExOEM0MjEuMTM5IDE5Ni45NDIgNDI0LjQ3MyAyMDcuMjA1IDQxNy45ODUgMjExLjkyTDM0MC42NDkgMjY4LjEwOEMzMzEuNzYzIDI3NC41NjQgMzI4LjA0NSAyODYuMDA3IDMzMS40MzkgMjk2LjQ1M0wzNjAuOTc5IDM4Ny4zNjdDMzYzLjQ1NyAzOTQuOTk1IDM1NC43MjcgNDAxLjMzOCAzNDguMjM4IDM5Ni42MjRMMjcwLjkwMiAzNDAuNDM2QzI2Mi4wMTYgMzMzLjk4IDI0OS45ODQgMzMzLjk4IDI0MS4wOTggMzQwLjQzNkwxNjMuNzYyIDM5Ni42MjRDMTU3LjI3MyA0MDEuMzM4IDE0OC41NDMgMzk0Ljk5NSAxNTEuMDIxIDM4Ny4zNjdMMTgwLjU2MSAyOTYuNDUzQzE4My45NTUgMjg2LjAwNyAxODAuMjM3IDI3NC41NjQgMTcxLjM1MSAyNjguMTA4TDk0LjAxNSAyMTEuOTJDODcuNTI2IDIwNy4yMDYgOTAuODYxIDE5Ni45NDIgOTguODgyIDE5Ni45NDJIMTk0LjQ3NEMyMDUuNDU3IDE5Ni45NDIgMjE1LjE5MiAxODkuODcgMjE4LjU4NiAxNzkuNDI0TDI0OC4xMjYgODguNTFDMjUwLjYwNCA4MC44ODIgMjYxLjM5NiA4MC44ODIgMjYzLjg3NCA4OC41MVY4OC41MVoiIGZpbGw9IiNGRkZCRTQiLz4KPC9zdmc+Cg==" />
+          <div class="top-hover-credits">
+            <p><%= top.lvl %></p>
+              <p class="top-txt-color"><%=top.totxp%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<%}else if(index>=10){%>
+<div class="top-container">
+   <h4 class="top-number"><%=index+1%></h4>
+   <div class="top-100">
+      <div class="top-user-info">
+         <img width="100" src="<%=top.userimg%>" alt="<%=top.user%> Avatar image" class="top-username-avatar">
+         <h5 class="top-username"><%=top.user%></h5>
+      </div>
+      <div class="top-user-levels-credits">
+            <img class="xp-or-credits-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNTYgNTEyQzM5Ny4zODUgNTEyIDUxMiAzOTcuMzg1IDUxMiAyNTZDNTEyIDExNC42MTUgMzk3LjM4NSAwIDI1NiAwQzExNC42MTUgMCAwIDExNC42MTUgMCAyNTZDMCAzOTcuMzg1IDExNC42MTUgNTEyIDI1NiA1MTJaIiBmaWxsPSIjRkZGQkU0Ii8+CjxwYXRoIGQ9Ik0yNTYgNDgwLjM3M0MzNzkuOTE4IDQ4MC4zNzMgNDgwLjM3MyAzNzkuOTE4IDQ4MC4zNzMgMjU2QzQ4MC4zNzMgMTMyLjA4MiAzNzkuOTE4IDMxLjYyNyAyNTYgMzEuNjI3QzEzMi4wODIgMzEuNjI3IDMxLjYyNyAxMzIuMDgyIDMxLjYyNyAyNTZDMzEuNjI3IDM3OS45MTggMTMyLjA4MiA0ODAuMzczIDI1NiA0ODAuMzczWiIgZmlsbD0iI0Y3NDJBQSIvPgo8cGF0aCBkPSJNMzM1LjA4OCA0NS45NjJDMzk3LjY1NyA4NS43NzggNDM5LjE2NyAxNTUuNzM5IDQzOS4xNjcgMjM1LjM5NkM0MzkuMTY3IDM1OS4zMTQgMzM4LjcxMSA0NTkuNzY5IDIxNC43OTMgNDU5Ljc2OUMxODYuOTU1IDQ1OS43NjkgMTYwLjMwMiA0NTQuNjk5IDEzNS43MDUgNDQ1LjQzM0MxNzAuNDcxIDQ2Ny41NTYgMjExLjczOSA0ODAuMzcyIDI1NiA0ODAuMzcyQzM3OS45MTggNDgwLjM3MiA0ODAuMzc0IDM3OS45MTcgNDgwLjM3NCAyNTUuOTk5QzQ4MC4zNzQgMTU5LjkyIDQxOS45ODIgNzcuOTQ0IDMzNS4wODggNDUuOTYyVjQ1Ljk2MloiIGZpbGw9IiNENzFGODkiLz4KPHBhdGggZD0iTTI2My44NzQgODguNTFMMjkzLjQxNCAxNzkuNDI0QzI5Ni44MDggMTg5Ljg3IDMwNi41NDIgMTk2Ljk0MiAzMTcuNTI2IDE5Ni45NDJINDEzLjExOEM0MjEuMTM5IDE5Ni45NDIgNDI0LjQ3MyAyMDcuMjA1IDQxNy45ODUgMjExLjkyTDM0MC42NDkgMjY4LjEwOEMzMzEuNzYzIDI3NC41NjQgMzI4LjA0NSAyODYuMDA3IDMzMS40MzkgMjk2LjQ1M0wzNjAuOTc5IDM4Ny4zNjdDMzYzLjQ1NyAzOTQuOTk1IDM1NC43MjcgNDAxLjMzOCAzNDguMjM4IDM5Ni42MjRMMjcwLjkwMiAzNDAuNDM2QzI2Mi4wMTYgMzMzLjk4IDI0OS45ODQgMzMzLjk4IDI0MS4wOTggMzQwLjQzNkwxNjMuNzYyIDM5Ni42MjRDMTU3LjI3MyA0MDEuMzM4IDE0OC41NDMgMzk0Ljk5NSAxNTEuMDIxIDM4Ny4zNjdMMTgwLjU2MSAyOTYuNDUzQzE4My45NTUgMjg2LjAwNyAxODAuMjM3IDI3NC41NjQgMTcxLjM1MSAyNjguMTA4TDk0LjAxNSAyMTEuOTJDODcuNTI2IDIwNy4yMDYgOTAuODYxIDE5Ni45NDIgOTguODgyIDE5Ni45NDJIMTk0LjQ3NEMyMDUuNDU3IDE5Ni45NDIgMjE1LjE5MiAxODkuODcgMjE4LjU4NiAxNzkuNDI0TDI0OC4xMjYgODguNTFDMjUwLjYwNCA4MC44ODIgMjYxLjM5NiA4MC44ODIgMjYzLjg3NCA4OC41MVY4OC41MVoiIGZpbGw9IiNGRkZCRTQiLz4KPC9zdmc+Cg==" />
+         <div class="top-hover-credits">
+           <p><%= top.lvl %></p>
+              <p class="top-txt-color"><%=top.totxp%></p>
+         </div>
+      </div>
+   </div>
+</div>
+    <%}})%>
+      </div>
+    </div>
+  </div>
+          </section>
+          <!--topcredits-->
+      <section style="display: none" id="topcredits">
+        <div class="page-wrapper inside-panel top-100badr">
+          <div class="container-fluid">
+            <div class="pt-25">
+              <!---topuser-->
+      
+   <%top100.forEach((top,index)=>{%>
+    <%if(index===0){%>
+    <div class="top-container">
+        <div class="top-1">
+          <div class="top-user-info">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjM5MCIgdmlld0JveD0iMCAwIDUxMiAzOTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik05MSAzMDBWMzkwSDQyMVYzMDBIOTFaIiBmaWxsPSIjRkY5REQ2Ii8+CjxwYXRoIGQ9Ik0yNTYgMzAwSDQyMVYzOTBIMjU2VjMwMFoiIGZpbGw9IiNGRjY2QkUiLz4KPHBhdGggZD0iTTQyMi41IDE2OS4xOTlMMzk4LjE5OSAyMTYuNTk4SDExMy44MDFMODkuNSAxNjkuMTk5QzEyNS4xOTkgMTE5LjY5OSAxODcuMzAxIDkwIDI1NiA5MEMzMjQuNjk5IDkwIDM4Ni44MDEgMTE5LjY5OSA0MjIuNSAxNjkuMTk5WiIgZmlsbD0iI0Y3MkFBMCIvPgo8cGF0aCBkPSJNNDIyLjUgMTY5LjE5OUwzOTguMTk5IDIxNi41OThIMjU2VjkwQzMyNC42OTkgOTAgMzg2LjgwMSAxMTkuNjk5IDQyMi41IDE2OS4xOTlaIiBmaWxsPSIjREEyQThFIi8+CjxwYXRoIGQ9Ik00NzcuMTAyIDEzOS4xOTlMNDIxIDMzMEg5MUwzNC44OTg0IDEzOS4xOTlMNzIuNjk5MiAxMjQuODAxQzg5LjgwMDggMTU3LjUgMTIyLjUgMTc2LjY5OSAxNDkuMTk5IDE4MEgxNjQuODAxQzE5OS4zMDEgMTc0LjYwMiAyMjUuMDk4IDEyMS44MDEgMjM1LjYwMiA3MS4zOTg0SDI3Ni40MDJDMjg2LjkwMiAxMjEuODAxIDMxMi43MDMgMTc0LjYwMiAzNDcuMTk5IDE4MEgzNjIuODAxQzM4OS41IDE3Ni42OTkgNDIyLjE5OSAxNTcuNSA0MzkuMzAxIDEyNC44MDFMNDc3LjEwMiAxMzkuMTk5WiIgZmlsbD0iI0Y1OTRDQyIvPgo8cGF0aCBkPSJNNDc3LjEwMiAxMzkuMTk5TDQyMSAzMzBIMjU2VjcxLjM5ODRIMjc2LjM5OEMyODYuOTAyIDEyMS44MDEgMzEyLjY5OSAxNzQuNjAyIDM0Ny4xOTkgMTgwSDM2Mi44MDFDMzg5LjUgMTc2LjY5OSA0MjIuMTk5IDE1Ny41IDQzOS4zMDEgMTI0LjgwMUw0NzcuMTAyIDEzOS4xOTlaIiBmaWxsPSIjRkY1Q0JBIi8+CjxwYXRoIGQ9Ik00NiAxNTBDMjEuMTg3NSAxNTAgMCAxMjkuODEyIDAgMTA1QzAgODAuMTg3NSAyMS4xODc1IDYwIDQ2IDYwQzcwLjgxMjUgNjAgOTEgODAuMTg3NSA5MSAxMDVDOTEgMTI5LjgxMiA3MC44MTI1IDE1MCA0NiAxNTBaIiBmaWxsPSIjRkE4Q0NCIi8+CjxwYXRoIGQ9Ik00NjYgMTUwQzQ0MS4xODggMTUwIDQyMSAxMjkuODEyIDQyMSAxMDVDNDIxIDgwLjE4NzUgNDQxLjE4OCA2MCA0NjYgNjBDNDkwLjgxMiA2MCA1MTIgODAuMTg3NSA1MTIgMTA1QzUxMiAxMjkuODEyIDQ5MC44MTIgMTUwIDQ2NiAxNTBaIiBmaWxsPSIjRkY1Q0JBIi8+CjxwYXRoIGQ9Ik0yNTYgMEMyMzEuMDk4IDAgMjExIDIwLjA5NzcgMjExIDQ1QzIxMSA2OS44OTg0IDIzMS4wOTggOTAgMjU2IDkwQzI4MC45MDIgOTAgMzAxIDY5Ljg5ODQgMzAxIDQ1QzMwMSAyMC4wOTc3IDI4MC45MDIgMCAyNTYgMFoiIGZpbGw9IiNGRjgzQ0EiLz4KPHBhdGggZD0iTTI1NiAxNzMuNjk5TDIwNC42OTkgMjI1TDI1NiAyNzYuMzAxTDMwNy4zMDEgMjI1TDI1NiAxNzMuNjk5WiIgZmlsbD0iI0Y3MkVBMSIvPgo8cGF0aCBkPSJNMzQ2IDIzMy43ODVMMzY3LjIxMSAyNTQuOTk2TDM0NiAyNzYuMjA3TDMyNC43ODkgMjU0Ljk5NkwzNDYgMjMzLjc4NVoiIGZpbGw9IiNEQTJBOEUiLz4KPHBhdGggZD0iTTE2NiAyMzMuNzg1TDE4Ny4yMTEgMjU0Ljk5NkwxNjYgMjc2LjIwN0wxNDQuNzg5IDI1NC45OTZMMTY2IDIzMy43ODVaIiBmaWxsPSIjRjcyRUExIi8+CjxwYXRoIGQ9Ik0yNTYgOTBWMEMyODAuOTAyIDAgMzAxIDIwLjA5NzcgMzAxIDQ1QzMwMSA2OS44OTg0IDI4MC45MDIgOTAgMjU2IDkwWiIgZmlsbD0iI0ZGNUNCQSIvPgo8cGF0aCBkPSJNMzA3LjMwMSAyMjVMMjU2IDI3Ni4zMDFWMTczLjY5OUwzMDcuMzAxIDIyNVoiIGZpbGw9IiNEQTJBOEUiLz4KPC9zdmc+Cg==" class="top-one-crown" id="top-one-crown-id"/>
+            <img width="100" src="<%=top.userimg%>" alt="<%=top.user%>" class="top-1-username-avatar" />
+            <h5 class="top-username"><%=top.user%></h5>
+          </div>
+          <div class="top-user-levels-credits">
+            <img class="xp-or-credits-img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBzdHlsZT0iZmlsbDojRkZCNERFOyIgZD0iTTI1NywwQzExNi4zMDIsMCwwLDExNC4zLDAsMjU1czExNi4zMDIsMjU3LDI1NywyNTdzMjU1LTExNi4zLDI1NS0yNTdTMzk3LjY5OCwwLDI1NywweiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkY4M0NBOyIgZD0iTTUxMiwyNTVjMCwxNDAuNy0xMTQuMzAyLDI1Ny0yNTUsMjU3VjBDMzk3LjY5OCwwLDUxMiwxMTQuMyw1MTIsMjU1eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkE3NUMyOyIgZD0iTTI1Nyw2MEMxNDkuNTk4LDYwLDYwLDE0Ny41OTksNjAsMjU1czg5LjU5OCwxOTcsMTk3LDE5N3MxOTUtODkuNTk5LDE5NS0xOTdTMzY0LjQwMiw2MCwyNTcsNjB6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGNzQyQUE7IiBkPSJNNDUyLDI1NWMwLDEwNy40MDEtODcuNTk4LDE5Ny0xOTUsMTk3VjYwQzM2NC40MDIsNjAsNDUyLDE0Ny41OTksNDUyLDI1NXoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I2ZjOWFkMzsiIGQ9Ik0yODcsMjQwaC0xNXYtNjBoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNWMwLDE5Ljc5OSwzMCwxOS43OTksMzAsMGMwLTI0LjkwMS0yMC4wOTgtNDUtNDUtNDVoLTE1Cgl2LTE1YzAtOS45MDEtNy41LTE1LTE1LTE1cy0xNSw1LjA5OS0xNSwxNXYxNWgtMTdjLTI0LjkwMiwwLTQ1LDIwLjA5OS00NSw0NXYzMGMwLDI0LjkwMSwyMC4wOTgsNDUsNDUsNDVoMTd2NjJoLTE3CgljLTguNDAxLDAtMTUtNi41OTktMTUtMTVjMC0xOS43OTktMzAtMTkuNzk5LTMwLDBjMCwyNC45MDEsMjAuMDk4LDQ1LDQ1LDQ1aDE3djE1YzAsOS45MDEsNy41LDE1LDE1LDE1czE1LTUuMDk5LDE1LTE1di0xNWgxNQoJYzI0LjkwMiwwLDQ1LTIwLjA5OSw0NS00NXYtMzJDMzMyLDI2MC4wOTksMzExLjkwMiwyNDAsMjg3LDI0MHogTTI0MiwyNDBoLTE3Yy04LjQwMSwwLTE1LTYuNTk5LTE1LTE1di0zMGMwLTguNDAxLDYuNTk5LTE1LDE1LTE1CgloMTdWMjQweiBNMzAyLDMxN2MwLDguNDAxLTYuNTk5LDE1LTE1LDE1aC0xNXYtNjJoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNVYzMTd6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGRDc4QzU7IiBkPSJNMjg3LDI0MGgtMTV2LTYwaDE1YzguNDAxLDAsMTUsNi41OTksMTUsMTVjMCwxOS43OTksMzAsMTkuNzk5LDMwLDBjMC0yNC45MDEtMjAuMDk4LTQ1LTQ1LTQ1aC0xNQoJdi0xNWMwLTkuOTAxLTcuNS0xNS0xNS0xNXYyNzJjNy41LDAsMTUtNS4wOTksMTUtMTV2LTE1aDE1YzI0LjkwMiwwLDQ1LTIwLjA5OSw0NS00NXYtMzJDMzMyLDI2MC4wOTksMzExLjkwMiwyNDAsMjg3LDI0MHoKCSBNMzAyLDMxN2MwLDguNDAxLTYuNTk5LDE1LTE1LDE1aC0xNXYtNjJoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNVYzMTd6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+            <div class="top-hover-credits">
+              <p><%= utils.convert(top.credits) %></p>
+              <p class="top-txt-color"><%=top.credits%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+  <%} if(index<=9&&index!=0){%>
+    <div class="top-container">
+      <h4 class="top-number-10"><%=index+1%></h4>
+      <div class="top-100">
+        <div class="top-user-info">
+          <img
+            width="100"
+            src="<%=top.userimg%>"
+            alt="<%=top.user%>"
+            class="top-username-avatar"
+          />
+          <h5 class="top-username"><%=top.user%></h5>
+        </div>
+        <div class="top-user-levels-credits">
+          <img class="xp-or-credits-img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBzdHlsZT0iZmlsbDojRkZCNERFOyIgZD0iTTI1NywwQzExNi4zMDIsMCwwLDExNC4zLDAsMjU1czExNi4zMDIsMjU3LDI1NywyNTdzMjU1LTExNi4zLDI1NS0yNTdTMzk3LjY5OCwwLDI1NywweiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkY4M0NBOyIgZD0iTTUxMiwyNTVjMCwxNDAuNy0xMTQuMzAyLDI1Ny0yNTUsMjU3VjBDMzk3LjY5OCwwLDUxMiwxMTQuMyw1MTIsMjU1eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkE3NUMyOyIgZD0iTTI1Nyw2MEMxNDkuNTk4LDYwLDYwLDE0Ny41OTksNjAsMjU1czg5LjU5OCwxOTcsMTk3LDE5N3MxOTUtODkuNTk5LDE5NS0xOTdTMzY0LjQwMiw2MCwyNTcsNjB6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGNzQyQUE7IiBkPSJNNDUyLDI1NWMwLDEwNy40MDEtODcuNTk4LDE5Ny0xOTUsMTk3VjYwQzM2NC40MDIsNjAsNDUyLDE0Ny41OTksNDUyLDI1NXoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I2ZjOWFkMzsiIGQ9Ik0yODcsMjQwaC0xNXYtNjBoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNWMwLDE5Ljc5OSwzMCwxOS43OTksMzAsMGMwLTI0LjkwMS0yMC4wOTgtNDUtNDUtNDVoLTE1Cgl2LTE1YzAtOS45MDEtNy41LTE1LTE1LTE1cy0xNSw1LjA5OS0xNSwxNXYxNWgtMTdjLTI0LjkwMiwwLTQ1LDIwLjA5OS00NSw0NXYzMGMwLDI0LjkwMSwyMC4wOTgsNDUsNDUsNDVoMTd2NjJoLTE3CgljLTguNDAxLDAtMTUtNi41OTktMTUtMTVjMC0xOS43OTktMzAtMTkuNzk5LTMwLDBjMCwyNC45MDEsMjAuMDk4LDQ1LDQ1LDQ1aDE3djE1YzAsOS45MDEsNy41LDE1LDE1LDE1czE1LTUuMDk5LDE1LTE1di0xNWgxNQoJYzI0LjkwMiwwLDQ1LTIwLjA5OSw0NS00NXYtMzJDMzMyLDI2MC4wOTksMzExLjkwMiwyNDAsMjg3LDI0MHogTTI0MiwyNDBoLTE3Yy04LjQwMSwwLTE1LTYuNTk5LTE1LTE1di0zMGMwLTguNDAxLDYuNTk5LTE1LDE1LTE1CgloMTdWMjQweiBNMzAyLDMxN2MwLDguNDAxLTYuNTk5LDE1LTE1LDE1aC0xNXYtNjJoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNVYzMTd6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGRDc4QzU7IiBkPSJNMjg3LDI0MGgtMTV2LTYwaDE1YzguNDAxLDAsMTUsNi41OTksMTUsMTVjMCwxOS43OTksMzAsMTkuNzk5LDMwLDBjMC0yNC45MDEtMjAuMDk4LTQ1LTQ1LTQ1aC0xNQoJdi0xNWMwLTkuOTAxLTcuNS0xNS0xNS0xNXYyNzJjNy41LDAsMTUtNS4wOTksMTUtMTV2LTE1aDE1YzI0LjkwMiwwLDQ1LTIwLjA5OSw0NS00NXYtMzJDMzMyLDI2MC4wOTksMzExLjkwMiwyNDAsMjg3LDI0MHoKCSBNMzAyLDMxN2MwLDguNDAxLTYuNTk5LDE1LTE1LDE1aC0xNXYtNjJoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNVYzMTd6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+          <div class="top-hover-credits">
+            <p><%= utils.convert(top.credits) %></p>
+            <p class="top-txt-color"><%=top.credits%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<%}else if(index>=10){%>
+<div class="top-container">
+   <h4 class="top-number"><%=index+1%></h4>
+   <div class="top-100">
+      <div class="top-user-info">
+         <img width="100" src="<%=top.userimg%>" alt="<%=top.user%> Avatar image" class="top-username-avatar">
+         <h5 class="top-username"><%=top.user%></h5>
+      </div>
+      <div class="top-user-levels-credits">
+          <img class="xp-or-credits-img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBzdHlsZT0iZmlsbDojRkZCNERFOyIgZD0iTTI1NywwQzExNi4zMDIsMCwwLDExNC4zLDAsMjU1czExNi4zMDIsMjU3LDI1NywyNTdzMjU1LTExNi4zLDI1NS0yNTdTMzk3LjY5OCwwLDI1NywweiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkY4M0NBOyIgZD0iTTUxMiwyNTVjMCwxNDAuNy0xMTQuMzAyLDI1Ny0yNTUsMjU3VjBDMzk3LjY5OCwwLDUxMiwxMTQuMyw1MTIsMjU1eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkE3NUMyOyIgZD0iTTI1Nyw2MEMxNDkuNTk4LDYwLDYwLDE0Ny41OTksNjAsMjU1czg5LjU5OCwxOTcsMTk3LDE5N3MxOTUtODkuNTk5LDE5NS0xOTdTMzY0LjQwMiw2MCwyNTcsNjB6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGNzQyQUE7IiBkPSJNNDUyLDI1NWMwLDEwNy40MDEtODcuNTk4LDE5Ny0xOTUsMTk3VjYwQzM2NC40MDIsNjAsNDUyLDE0Ny41OTksNDUyLDI1NXoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I2ZjOWFkMzsiIGQ9Ik0yODcsMjQwaC0xNXYtNjBoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNWMwLDE5Ljc5OSwzMCwxOS43OTksMzAsMGMwLTI0LjkwMS0yMC4wOTgtNDUtNDUtNDVoLTE1Cgl2LTE1YzAtOS45MDEtNy41LTE1LTE1LTE1cy0xNSw1LjA5OS0xNSwxNXYxNWgtMTdjLTI0LjkwMiwwLTQ1LDIwLjA5OS00NSw0NXYzMGMwLDI0LjkwMSwyMC4wOTgsNDUsNDUsNDVoMTd2NjJoLTE3CgljLTguNDAxLDAtMTUtNi41OTktMTUtMTVjMC0xOS43OTktMzAtMTkuNzk5LTMwLDBjMCwyNC45MDEsMjAuMDk4LDQ1LDQ1LDQ1aDE3djE1YzAsOS45MDEsNy41LDE1LDE1LDE1czE1LTUuMDk5LDE1LTE1di0xNWgxNQoJYzI0LjkwMiwwLDQ1LTIwLjA5OSw0NS00NXYtMzJDMzMyLDI2MC4wOTksMzExLjkwMiwyNDAsMjg3LDI0MHogTTI0MiwyNDBoLTE3Yy04LjQwMSwwLTE1LTYuNTk5LTE1LTE1di0zMGMwLTguNDAxLDYuNTk5LTE1LDE1LTE1CgloMTdWMjQweiBNMzAyLDMxN2MwLDguNDAxLTYuNTk5LDE1LTE1LDE1aC0xNXYtNjJoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNVYzMTd6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGRDc4QzU7IiBkPSJNMjg3LDI0MGgtMTV2LTYwaDE1YzguNDAxLDAsMTUsNi41OTksMTUsMTVjMCwxOS43OTksMzAsMTkuNzk5LDMwLDBjMC0yNC45MDEtMjAuMDk4LTQ1LTQ1LTQ1aC0xNQoJdi0xNWMwLTkuOTAxLTcuNS0xNS0xNS0xNXYyNzJjNy41LDAsMTUtNS4wOTksMTUtMTV2LTE1aDE1YzI0LjkwMiwwLDQ1LTIwLjA5OSw0NS00NXYtMzJDMzMyLDI2MC4wOTksMzExLjkwMiwyNDAsMjg3LDI0MHoKCSBNMzAyLDMxN2MwLDguNDAxLTYuNTk5LDE1LTE1LDE1aC0xNXYtNjJoMTVjOC40MDEsMCwxNSw2LjU5OSwxNSwxNVYzMTd6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+         <div class="top-hover-credits">
+            <p><%= utils.convert(top.credits) %></p>
+            <p class="top-txt-color"><%=top.credits%></p>
+         </div>
+      </div>
+   </div>
+</div>
+    <%}})%>
+      </div>
+    </div>
+  </div>
+                  </section>
+          <!--daily-->
+      <section id="daily">
+        <a>daily</a>
+          </section>
+          <!--crditslog-->
+      <section id="crditslog">
+        <a>crditslog</a>
+          </section>
+      <div class="Toastify"></div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/scripts/script.js">
+</script>
+</body>

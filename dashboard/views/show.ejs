@@ -1,0 +1,2880 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <title><%=guild.name%></title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/css/show.css">
+  
+  <!-- import the webpage's javascript file -->
+</head> 
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <div class="rtl wrapper theme-6-active pimary-color-pink darkmode">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-left ">
+          <li>
+            <a
+              id="toggle_nav_btn"
+              class="toggle-left-nav-btn inline-block ml-20"
+              ><i class="zmdi zmdi-menu"></i
+            ></a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="hidden-xs"><a>الأوامر</a></li>
+          <li class="hidden-xs">
+            <a target="_blank" href="https://discord.gg/ProBot">الدعم الفني</a>
+          </li>
+          <li>
+            <div class="dropdown  inline-block pull-right dropdowntext">
+              <a class="dropdown__trigger "
+                ><img
+                  class="flag"
+                  alt="ar flag"
+                  src="https://probot.io/static/flags/sa.png"
+              /></a>
+              <div class="dropdown__content ">
+                <ul style="height: 50vh; overflow: auto;">
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class=" ">
+          <div class="probot-logo">
+            <div
+              class="react-reveal"
+              style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-200201212873087-1;"
+            >
+              <a href="/"
+                ><img
+                  class="brand-img"
+                  src="https://probot.io/static/logo1.jpg"
+                  alt="brand"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="dramexNav inline-block pull-right"></div>
+      </nav>
+      <div location="[object Object]" computedmatch="[object Object]">
+        <div
+          class="sidebar_root"
+          role="navigation"
+          style="position: absolute; inset: 0px; overflow: hidden;"
+        >
+          <div
+            class="sidebar_main"
+            style="z-index: 2; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out 0s; will-change: transform; overflow-y: auto; right: 0px; transform: translateX(0%); box-shadow: rgba(0, 0, 0, 0.15) -2px 2px 4px;"
+          >
+            <div class="dramex0 fixed-sidebar-left  ">
+              <div class="dramex1 ">
+                <div
+                  class="react-reveal"
+                  style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-200201212873087-2;"
+                ></div>
+                <div
+                  class="react-reveal"
+                  style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-200201212873087-2;"
+                >
+                  <a href="/dashboard"
+                    ><img
+                      alt="Main"
+                      size="60"
+                      name="home"
+                      src="<%=user.avatarUrl(64) %>"
+                      class="user-auth-img img-circle dramex-sideimg "
+                  /></a>
+                </div>
+                <div
+                  class="react-reveal"
+                  style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-200201212873087-2;"
+                ></div>
+           <%guilds.forEach(guild=>{%>
+                <%  if(guild.iconHash) {%>
+                <div
+                class="react-reveal"
+                style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+              >
+                <a href="/servers/<%=guild.id%>"
+                ><img
+                  size="60"
+                  name="<%=guild.name%>"
+                  alt="<%=guild.name%>"
+                  src="<%=guild.iconUrl(64) %>"
+                  class="user-auth-img img-circle dramex-sideimg undefined"
+              /></a>
+            </div>
+            <% } else if(guild.id == gid) {%>
+                <%  if(guild.iconHash) {%>
+              <div class="react-reveal"style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-766660477909948-2;">
+              <a href="/servers/<%=guild.id%>">
+            <img size="60"name="<%=guild.name%>"alt="<%=guild.name%>"src="<%=guild.iconUrl(64)%>"class="user-auth-img img-circle dramex-sideimg dramexactiveimg"/>
+            </a>
+              </div>
+
+              <%} else{%>
+ <div
+                  class="react-reveal"
+                  style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-466747941852895-2;"
+                >
+                  <a href="/servers/<%=guild.id%>"
+                    ><div
+                      aria-label="<%=guild.name%>"
+                      class="img-circle dramex-sideimg dramexactiveimg UserAvatar UserAvatar--dark"
+                    >
+                      <div
+                        class="UserAvatar--inner"
+                        style="line-height: 60px; text-align: center; border-radius: 100%; max-width: 60px; width: 60px; max-height: 60px; height: 60px; background-color: rgb(114, 137, 218);"
+                      >
+                        <%= utils.getAbbreviation(guild.name) %>
+                      </div>
+                    </div></a
+                  >
+                </div>
+<%}%>
+              <%}else{%>
+<div
+              class="react-reveal"
+              style="animation-fill-mode: both; backface-visibility: visible; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-98668716054933-2;"
+            >
+              <a href="/servers/<%=guild.id%>"
+                ><div
+                  aria-label="<%=guild.name%>"
+                  class="img-circle dramex-sideimg undefined UserAvatar UserAvatar--dark"
+                >
+                  <div
+                    class="UserAvatar--inner"
+                    style="line-height: 60px; text-align: center; border-radius: 100%; max-width: 60px; width: 60px; max-height: 60px; height: 60px; background-color: rgb(114, 137, 218);"
+                  >
+                  <%= utils.getAbbreviation(guild.name) %>
+                  </div>
+                </div></a
+              >
+            </div>
+
+
+
+<%}})%>
+              
+   
+                  
+               
+              </div>
+              <div class="dramex2">
+                <div class="slimScrollDiv">
+                  <ul class="nav navbar-nav side-nav nicescroll-bar">
+                    <li>
+                      <div class="user-profile text-center">
+                        <img
+                          src="<%=guild.iconURL(64)%>"
+                          alt="<%=guild.id%>"
+                          class="guild-avatar img-circle "
+                        />
+                        <div class="dropdown mt-5">
+                          <a
+                            class="dropdown-toggle  bg-transparent sidebarServername"
+                            ><%=guild.name%></a
+                          >
+                        </div>
+                      </div>
+                    </li>
+                    <li class="navigation-header">
+                      <span>عام</span><i class="zmdi zmdi-more"></i>
+                    </li>
+                    <li>
+                       <a id="settingTab"   class="nav-link active"
+                        ><div class="pull-left">
+                          <i class="fas fa-cog mr-20"></i
+                          ><span class="right-nav-text">اعدادات السيرفر</span>
+                        </div>
+                        <div class="clearfix"></div
+                      ></a>
+                    </li>
+                    <li class="navigation-header">
+                      <span>قائمة الخصائص</span><i class="zmdi zmdi-more"></i>
+                    </li>
+                    <li>
+                      <a id="commanndsTab" class="nav-link"
+                        ><div class="pull-left">
+                          <i class="zmdi zmdi-sun mr-20"></i>
+                        <span class="right-nav-text">الاوامر العامة</span>
+                        </div>
+                        <div class="pull-right">
+                          <i class="fa fa-check-circle module-on"></i>
+                        </div>
+                        <div class="clearfix"></div
+                      ></a>
+                    </li>
+                    
+                    <li>
+                      <a id="welcomeTab"class="nav-link"
+                        ><div class="pull-left">
+                          <i class="fas fa-user-plus mr-20"></i
+                          ><span class="right-nav-text">الترحيب</span>
+                        </div>
+                        <div class="pull-right">
+                          <i class=" fa fa-check-circle module-on"></i>
+                        </div>
+                        <div class="clearfix"></div
+                      ></a>
+                    </li>
+
+                    <li class="mb-25"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sidebar_overlay"
+            role="presentation"
+            tabindex="0"
+            style="z-index: 1; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s; background-color: rgba(0, 0, 0, 0.3);"
+          ></div>
+          <div
+            class="sidebar_content"
+            style="position: absolute; inset: 0px 350px 0px 0px; overflow-y: scroll; transition: left 0.3s ease-out 0s, right 0.3s ease-out 0s;"
+          > 
+<section id="setting">
+  <div class="page-wrapper inside-panel">
+          <div class="container-fluid">
+<div>
+  <div class="mt-25" id="server-settings">
+<div class="react-reveal confo"style="display: none;animation-fill-mode: both; animation-duration: 10000ms; animation-delay: 5000ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-200201212873087-3;">
+  <div class="col-md-6 col-sm-6 confoText">
+    احذر — لديك تغييرات لم يتم حفظها!
+  </div>
+  <div class="col-md-6 col-sm-6 confoButtons">
+    <button type="button" class="btn btn-default btn-sm mr-10 ml-10">
+      إلغاء
+    </button>
+    <div class="btn btn-success btn-sm ld-over-inverse save-prefix">حفظ التغييرات <div  class="ld ld-ring ld-spin"></div></div>
+  </div>
+</div>
+    <div class="moduleTitle txt-light">
+      <h4 class="mb-10">اعدادات السيرفر</h4>
+    </div>
+    <div class="form-wrap relative">
+      <form role="form" class="form-horizontal">
+        <div class="form-group ">
+          <label class="col-sm-3 control-label " for="example-input-large">بادئة البوت</label>
+          <div class="col-sm-6">
+            <input type="text"id="example-input-large"name="prefix"class="form-control input-lg prefix"value="<%=savedGuild.general.prefix%>"/>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label class="col-sm-3 control-label " for="example-input-large">اللغة</label>
+          <div class="col-sm-6">
+            <select class="form-control">
+              <option value="en">English</option>
+              </select >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+            <div class="center mt-25 block">
+              © 2021 ProBot | Not affiliated with <i class="fab fa-discord"></i>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+
+</section>
+
+<section id="commannds"style="display: none">
+  <div class="page-wrapper commannds-page inside-panel">
+          <div class="container-fluid">
+<div>
+  <div>
+    <div class="pt-25 moduleS">
+      <div class="moduleTitle txt-light">
+        <h4>الاوامر العامة</h4>
+<%if(savedGuild.commands.enabled == 'true'){%>
+<div class="dramexSwi commandsonoff" style="position: relative;display: inline-block;text-align: left;opacity: 1;border-radius: 20px;transition: opacity 0.25s ease 0s;touch-action: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);user-select: none;">
+<div class="react-switch-bg cmdonoff" style="height: 40px; width: 150px; margin: 0px; position: relative; background: rgb(0, 136, 0); border-radius: 20px; cursor: pointer;">
+<div class="box1" style="height: 40px; width: 60px; position: relative; opacity: 1; pointer-events: none; transition: opacity 0.25s ease 0s;">
+<div class="boxon EnabledCheck">مُفعل</div>
+</div>
+<div class="box2" style="height: 40px; width: 60px; position: absolute; opacity: 0; right: 0px; top: 0px; pointer-events: none; transition: opacity 0.25s ease 0s;">
+<div class="boxoff DisabledCheck">مُعطل</div>
+</div>
+</div>
+<div class="cricel react-switch-handle" role="checkbox" tabindex="0" id="normal-switch" aria-checked="true" aria-disabled="false" aria-label="drammudles" style="height: 38px; width: 38px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(1px); top: 1px; outline: 0px; border: 0px;">
+</div>
+</div>
+<%}else{%>
+<div class="dramexSwi commandsonoff" style="position: relative;display: inline-block;text-align: left;opacity: 1;border-radius: 20px;transition: opacity 0.25s ease 0s;touch-action: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);user-select: none;">
+<div class="react-switch-bg cmdonoff" style="height: 40px; width: 150px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 20px; cursor: pointer;">
+<div class="box1" style="height: 40px; width: 60px; position: relative; opacity: 0; pointer-events: none; transition: opacity 0.25s ease 0s;">
+<div class="boxon EnabledCheck">مُفعل</div>
+</div>
+<div class="box2" style="height: 40px; width: 60px; position: absolute; opacity: 1; right: 0px; top: 0px; pointer-events: none; transition: opacity 0.25s ease 0s;">
+<div class="boxoff DisabledCheck">مُعطل</div>
+</div>
+</div>
+<div class="cricel react-switch-handle" role="checkbox" tabindex="0" id="normal-switch" aria-checked="true" aria-disabled="false" aria-label="drammudles" style="height: 38px; width: 38px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(111px); top: 1px; outline: 0px; border: 0px;">
+</div>
+</div>
+<%}%>
+      </div>
+      <div class="clearfix"></div>
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">profile</div>
+          <div class="CommandDescription">
+            عرض بطاقة التعريف الشخصية العامة المخصصة لك أو لشخص آخر.
+          </div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editprofile button">تعديل</button>
+          </div>
+          <%if(savedGuild.commands.profile.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi profileonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg profilebox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle profilecricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi profileonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg profilebox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle profilecricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+      
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">user</div>
+          <div class="CommandDescription">
+            يعرض معلومات، مثل تاريخ دخول السيرفر وتاريخ التسجيل في الديسكورد عنك
+            او عن مستخدم آخر.
+          </div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="edituser button">تعديل</button>
+          </div>
+             <%if(savedGuild.commands.user.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi useronoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg userbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle usercricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi useronoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg userbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle usercricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">avatar</div>
+          <div class="CommandDescription">
+            الحصول على الصورة الرمزية للمستخدم.
+          </div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editavatar button">تعديل</button>
+          </div>
+                   <%if(savedGuild.commands.avatar.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi avataronoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg avatarbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle avatarcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi avataronoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg avatarbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle avatarcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">server</div>
+          <div class="CommandDescription">يظهر معلومات حول السيرفر.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editserver button">تعديل</button>
+          </div>
+                      <%if(savedGuild.commands.avatar.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi serveronoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg serverbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle servercricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi serveronoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg serverbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle servercricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+     
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">daily</div>
+          <div class="CommandDescription">الحصول على راتبك اليومي.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editdaily button">تعديل</button>
+          </div>
+                  <%if(savedGuild.commands.daily.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi dailyonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg dailybox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle dailycricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi dailyonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg dailybox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle dailycricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">rep</div>
+          <div class="CommandDescription">
+            منح شخص نقطة سمعة. يمكن استخدامها مرة واحدة فقط كل 24 ساعة.
+          </div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editrep button">تعديل</button>
+          </div>
+                          <%if(savedGuild.commands.rep.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi reponoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg repbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle repcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi reponoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg repbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle repcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">credits</div>
+          <div class="CommandDescription">يظهر رصيدك أو رصيد شخص ما.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editcredits button">تعديل</button>
+          </div>
+         <%if(savedGuild.commands.credits.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi creditsonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg creditsbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle creditscricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi creditsonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg creditsbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle creditscricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+     
+      
+      <div class="command">
+        <div class="CommandText">
+          <div class="CommandName">ping</div>
+          <div class="CommandDescription">اختبار وقت استجابة البوت.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editping button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.ping.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi pingonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg pingbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle pingcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi pingonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg pingbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle pingcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">ban</div>
+          <div class="CommandDescription">حظر العضو.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editban button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.ban.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi banonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg banbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle bancricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi banonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg banbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle bancricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">unban</div>
+          <div class="CommandDescription">إزالة الحظر عن عضو.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editunban button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.unban.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi unbanonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg unbanbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle unbancricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi unbanonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg unbanbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle unbancricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">kick</div>
+          <div class="CommandDescription">طرد العضو.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editkick button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.kick.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi kickonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg kickbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle kickcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi kickonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg kickbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle kickcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">mute</div>
+          <div class="CommandDescription">منع أحد الأعضاء من الكتابة في الرومات الكتابية.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editmute button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.mute.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi muteonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg mutebox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle mutecricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi muteonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg mutebox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle mutecricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">unmute</div>
+          <div class="CommandDescription">الغاء منع كتابي من عضو.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editunmute button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.unmute.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi unmuteonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg unmutebox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle unmutecricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi unmuteonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg unmutebox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle unmutecricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">clear</div>
+          <div class="CommandDescription">تنظيف رسائل الشات.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editclear button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.clear.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi clearonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg clearbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle clearcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi clearonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg clearbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle clearcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">lock</div>
+          <div class="CommandDescription">يقوم بتعطيل خاصية إرسال الرسائل من الجميع في روم معين.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editlock button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.lock.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi lockonoff" style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg lockbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle lockcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi lockonoff"style="position: relative; display: inline-block; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg lockbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle lockcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-block; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<div class="command">
+        <div class="CommandText">
+          <div class="CommandName">unlock</div>
+          <div class="CommandDescription">يقوم بتفعيل إرسال الرسائل من الجميع في روم معين.</div>
+        </div>
+        <div class="CommandInfoContainer">
+          <div class="CommandInfo">
+            <button type="button" class="editunlock button">تعديل</button>
+          </div>
+            <%if(savedGuild.commands.unlock.status.disabled == 'false'){%>
+<div class="CommandInfo">
+<div class="dramexSwi unlockonoff" style="position: relative; display: inline-bunlock; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+<div class="react-switch-bg unlockbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(136, 136, 136); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+<div class="react-switch-handle unlockcricel" role="checkbox" tabindex="0" id="material-switch" aria-checked="false" aria-disabled="false" aria-label="dramm" style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-bunlock; border-radius: 50%; position: absolute; transform: translateX(20px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;">
+</div></div></div>
+<%}else{%>
+<div class="CommandInfo">
+  <div class="dramexSwi unlockonoff"style="position: relative; display: inline-bunlock; text-align: left; opacity: 1; border-radius: 12px; transition: opacity 0.25s ease 0s; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none;">
+    <div class="react-switch-bg unlockbox" style="height: 24px; width: 42px; margin: 0px; position: relative; background: rgb(226, 64, 158); border-radius: 12px; cursor: pointer; transition: background 0.25s ease 0s;"></div>
+    <div class="react-switch-handle unlockcricel"role="checkbox"tabindex="0"id="material-switch"aria-checked="true"aria-disabled="false"aria-label="dramm"style="height: 20px; width: 20px; background: rgb(255, 255, 255); cursor: pointer; display: inline-bunlock; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0px; box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px; border: 0px; transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;"></div>
+  </div>
+</div>
+
+<%}%>
+        </div>
+      </div>
+<!--h-->
+    </div>
+  </div>
+</div>
+<!--dsv-->
+<div style="display:none;" class="showedit styles_overlay__CLSq- undefined">
+  <div class="styles_modal__gNwvD commandModal rtl">
+    <div class="Modalhead"><h5>تعديل اعدادات</h5></div>
+    <div class="row modalDram">
+      <div class="mb-15">
+        <div class="mb-5 commandItem">الأختصارات</div>
+        <div class=" css-2b097c-container">
+          <div class="formselect__control css-yk16xz-control">
+            <div
+              class="formselect__value-container formselect__value-container--is-multi formselect__value-container--has-value css-1hwfws3" >
+
+              <div class="css-1g6gooi shorts1">
+                <div class="formselect__input" style="display: inline-block;">
+                  <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-13-input" spellcheck="false" tabindex="0" type="text"  aria-autocomplete="list"  value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;" />
+                  <div
+                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Montserrat, Tajawal, sans-serif; font-weight: 500; font-style: normal; letter-spacing: normal; text-transform: none;"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="formselect__indicators css-1wy0on6">
+              <div aria-hidden="true" class="formselect__indicator formselect__clear-indicator css-tlfecz-indicatorContainer">
+                <svg height="20"width="20" viewBox="0 0 20 20"aria-hidden="true"focusable="false"class="css-19bqh2r">
+                  <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="commandSave">
+      <div class="btn  btn-success btn-rounded ">حفظ الإعدادات</div>
+    </div>
+    <button class="colseedit styles_closeButton__20ID4">
+      <svg  class="styles_closeIcon__1QwbI" xmlns="http://www.w3.org/2000/svg" width="28" height="28"  viewBox="0 0 36 36" >
+        <path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" ></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!--dsv-->
+
+    <div class="center mt-25 block">
+              © 2021 ProBot | Not affiliated with <i class="fab fa-discord"></i>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+</section>
+<!----mod---->
+
+<section id="welcome"style="display: none">
+<div class="react-reveal confo2" style="display: none;animation-fill-mode: both;animation-duration: 1000ms;animation-delay: 0ms;animation-iteration-count: 1;opacity: 1;animation-name: react-reveal-846410236845617-3;background-color: black;position: fixed;padding: 5px;border-radius: 10px;width: 60%;z-index: 500;max-width: 740px;margin: 0px auto;flex-direction: row;margin-top: 670px;margin-left: 200px;"><div class="col-md-6 col-sm-6 confoText">احذر — لديك تغييرات لم يتم حفظها!</div><div class="col-md-6 col-sm-6 confoButtons"><button type="button" class="btn btn-default btn-sm mr-10 ml-10 closewel">إلغاء</button><div class="btn btn-success btn-sm ld-over-inversefalse savewel">حفظ التغييرات </div></div></div>
+<div class="page-wrapper inside-panel welcome-page"style="direction: rtl;margin-left: 0px;margin-right: 350;">
+   <div class="container-fluid">
+      <div>
+         <div>
+
+            <div>
+</div>
+            <div class="pt-25 moduleS">
+               <div class="moduleTitle txt-light">
+
+                  <h4>الترحيب</h4>
+                 
+               </div>
+               <div class="clearfix"></div>
+               <div class="panel-body ">
+                  <div class="flex">
+                     <label class="mb-10 ccName txt-light ">ارسال رسالة عند دخول عضو للسيرفر</label>
+                  </div>
+                  <div class="pt-25">
+                     <textarea class="form-control textarea" rows="5" maxlength="2000" style="margin: 0px -32.4px 0px 0px; width: 888px;height: 155px;"><%=savedGuild.welcome_settings.textarea%></textarea>
+                     <div class="mt-30 mb-5 variablesRtl">
+                        <strong>المتغيرات:</strong>
+                        <p class="text-muted">منشن المدعو <code>[user]</code></p>
+                        <p class="text-muted">اسم المدعو بدون منشن <code>[userName]</code></p>
+                        <p class="text-muted">عدد الأعضاء <code>[memberCount]</code></p>
+                        <p class="text-muted">اسم السيرفر <code>[server]</code></p>
+                        <p class="text-muted">منشن الداعي <code>[inviter]</code><span class="label label-premium">free</span> </p>
+                        <p class="text-muted">اسم الداعي بدون منشن <code>[inviterName]</code><span class="label label-premium">free</span> </p>
+                        <p class="text-muted">عدد دعوات العضو <code>[invites]</code><span class="label label-premium">free</span> </p>
+                     </div>
+                     <div class="pb-25 pt-25 crtl">
+                        <div class="radio-inline"><span class=""><label class="txt-light" for="radio_6">إرسال للروم</label></span></div>
+                        <div class="radio-inline inlineChannel">
+                           <div class=" css-2b097c-container">
+                                 <select style="width: 100%;" name="channel" class="channel formselect__control css-yk16xz-control">
+<%guild.channels.cache.filter((ch) => ch.type === 'text').forEach(ch=>{%>
+<%if(ch.id === savedGuild.welcome_settings.channel) {%>
+ <option selected="selected" value="<%=ch.id%>"><%=ch.name%></option>
+<%} else{%>
+  <option value="<%=ch.id%>"><%=ch.name%></option>
+<%}%>
+<%})%>
+</select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="split mt-25 mb-25"></div>
+                  <div class="flex">
+                     <label class="mb-10 ccName txt-light">ارسال صورة عند دخول عضو للسيرفر</label> 
+                  </div>
+                  <div class="pt-25 crtl">
+                     <div class="radio-inline">إرسال :</div>
+                     <div class="radio-inline false"><span class=""><label class="txt-light" for="d1">مع رسالة الترحيب</label></span></div>
+                     <div class="radio-inline inlineChannel"></div>
+                     <div class="pt-25" align="center">
+                        <div id="konvajs">
+                           </div>
+                        </div>
+                        <br>
+                     </div>
+                     <div class="tab-struct  custom-tab-1 mt-40">
+                        <ul role="tablist"style="float: right;" class="nav nav-tabs" id="myTabs_10">
+                           <li id="usernameli"class="wel-li" role="presentation" class=""><a><i class="TabIcon zmdi zmdi-photo-size-select-large"></i>إسم المستخدم</a></li>
+                           <li id="avatarli"class="wel-li" role="presentation" class=""><a><i class="TabIcon zmdi zmdi-photo-size-select-large"></i>الصوره الرمزيه</a></li>
+                           <li id="backgroundli"class="wel-li active in" role="presentation"><a><i class="TabIcon zmdi zmdi-photo-size-select-large"></i>الخلفية</a></li>
+                        </ul>
+                        <div class="tab-content pt-25"style="padding-top: 75px!important;" id="myTabContent_10">
+                           <div id="background" class="tab-pane fade lia active in">
+                              <div class="react-reveal row" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <div class="col-md-10">
+                                    
+                                    <div class="form-group false">
+                                       <label class="control-label col-md-3 txt-light"></label>
+                                       <div class="col-md-9">
+                                          <div>
+                                             <div class="fileinput fileinput-new input-group" data-provides="fileinput"><input id="imageurl" class="imageurl form-control" data-trigger="fileinput" disabled="" placeholder="رفع صورة" value="<%=savedGuild.welcome_settings.imageurl%>"><span class="input-group-addon fileupload btn btn-info btn-anim btn-file"><i class="fa fa-upload"></i><span class="fileinput-new btn-text">رفع صورة</span><span class="fileinput-exists btn-text">Change</span><input type="hidden"><input id="imagefiled" type="file" name="adadasdads" accept="image/*"></span></div>
+<div style="display:none;" class="form-group false progessbar"><label class="control-label col-md-3 txt-light">رفع</label><div class="col-md-9"><svg class="rc-progress-line " viewBox="0 0 100 4" preserveAspectRatio="none"><path class="rc-progress-line-trail" d="M 2,2
+           L 98,2" stroke-linecap="round" stroke="#D3D3D3" stroke-width="1" fill-opacity="0"></path><path class="rc-progress-line-path" d="M 2,2
+           L 98,2" stroke-linecap="round" stroke="#32CD32" stroke-width="4" fill-opacity="0" style="stroke-dasharray: 0px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;"></path></svg></div></div>
+                                          </div>
+                                       </div>
+                                    </div>   
+                                 </div>
+                              </div>
+ <input type="hidden" id="tsx" class="textsx" name="textsx" value="<%=+(savedGuild.welcome_settings.textsx)%>">
+ <input type="hidden" id="tsy" class="textsy"name="textsy" value="<%=+(savedGuild.welcome_settings.textsy)%>">
+ <input type="hidden"id="stagewidth" class="stagewidth"name="stagewidth" value="<%=+(savedGuild.welcome_settings.stagewidth)%>">
+ <input type="hidden"id="stageheight" class="stageheight"name="stageheight" value="<%=+(savedGuild.welcome_settings.stageheight)%>">
+
+                           </div>
+                           <div id="avatar" class="tab-pane fade lia">
+                              <div class="react-reveal form-group mb-25 pb-25" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <label class="control-label col-md-3 txt-light">نوع الصورة </label>
+                                 <div class="col-md-9">
+                                    <select id="icons"class="icontype form-control">
+               <%if(savedGuild.welcome_settings.icontype === "circle"){%>
+  <option selected="selected" value="circle">دائرة</option>
+  <option value="squere">مربع</option>
+<%} else{%>
+ <option selected="selected" value="squere">مربع</option>
+  <option value="circle">دائرة</option>
+<%}%> 
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="react-reveal row" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">عرض الصورة </label>
+                                       <div class="col-md-9"><input id="conw" type="Number" class="form-control imagesx cordenw" placeholder="0" value="<%=savedGuild.welcome_settings.imagesx%>"><span class="help-block">يمكنك التعديل باستخدام الماوس.<span role="img" aria-label="Emoji">😉</span> </span></div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">إرتفاع الصورة</label>
+                                       <div class="col-md-9"><input id="conh" type="Number" class="form-control imagesy cordenh" placeholder="0" value="<%=savedGuild.welcome_settings.imagesy%>"><span class="help-block">يمكنك التعديل باستخدام الماوس.<span role="img" aria-label="Emoji">😉</span> </span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="react-reveal row" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">احداثيات (يسار)</label>
+                                       <div class="col-md-9"><input id="conx" type="Number" class="form-control imagex cordenx" placeholder="0" value="<%=savedGuild.welcome_settings.imagex%>"><span class="help-block">يمكنك التعديل باستخدام الماوس.<span role="img" aria-label="Emoji">😉</span> </span></div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">احداثيات (أعلى)</label>
+                                       <div class="col-md-9"><input id="cony" type="Number" class="form-control imagey cordeny" placeholder="0" value="<%=savedGuild.welcome_settings.imagey%>"><span class="help-block">يمكنك التعديل باستخدام الماوس.<span role="img" aria-label="Emoji">😉</span> </span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div id="username" class="tab-pane fade lia">
+                              <div class="react-reveal row" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">احداثيات (يسار)</label>
+                                       <div class="col-md-9"><input id="tx" type="Number" class="form-control textx" placeholder="0" value="<%=savedGuild.welcome_settings.textx%>"><span class="help-block">يمكنك التعديل باستخدام الماوس.</span></div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">احداثيات (أعلى)</label>
+                                       <div class="col-md-9"><input id="ty" type="Number" class="form-control texty" placeholder="0" value="<%=savedGuild.welcome_settings.texty%>"><span class="help-block">يمكنك التعديل باستخدام الماوس.</span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="react-reveal row" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">محاذاة النص</label>
+                                       <div class="col-md-9">
+                                          <select id="textalign" class="form-control textalign">
+                                      <%if(savedGuild.welcome_settings.textalign == "center"){%>
+                                             <option selected="selected" value="center">وسط</option>
+                                             <option value="left">يسار</option>
+                                             <option value="right">يمين</option>
+                                      <%}else if(savedGuild.welcome_settings.textalign == "left"){%>
+                                             <option value="center">وسط</option>
+                                             <option selected="selected" value="left">يسار</option>
+                                             <option value="right">يمين</option>
+                                      <%}else if(savedGuild.welcome_settings.textalign == "right"){%>
+                                             <option value="center">وسط</option>
+                                             <option value="left">يسار</option>
+                                             <option selected="selected" value="right">يمين</option>
+                                      <%} else {%>
+                                             <option value="center">وسط</option>
+                                             <option value="left">يسار</option>
+                                             <option value="right">يمين</option>
+                                      <%}%>
+                                          </select>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">حجم النص</label>
+                                       <div class="col-md-9"><input id="ts" type="Number" class="form-control texts" placeholder="0" value="<%=savedGuild.welcome_settings.texts%>"></div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="react-reveal row" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-830914353893168-3;">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="control-label col-md-3 txt-light">لون النص</label>
+                                       <div class="col-md-9">
+                                          <div style="padding: 10px;">
+                                                <input id="color-picker" value="<%=savedGuild.welcome_settings.textcolor%>"  class="form-img textcolor"  />
+                                             
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+      <div class="center mt-25 block">© 2021 ProBot  | Not affiliated with <i class="fab fa-discord"></i></div>
+   </div>
+</div>
+</section>
+
+      </div>
+    </div>
+  </div>
+  <span
+    id="recharts_measurement_span"
+    style="position: absolute; top: -20000px; left: 0px; padding: 0px; margin: 0px; border: none; white-space: pre;"
+    >30</span
+  >
+<script >
+
+var profile = []
+<%savedGuild.commands.profile.aliases.forEach(command=>{%>
+profile.push("<%=command%>")
+         <%})%>
+var user = []
+<%savedGuild.commands.user.aliases.forEach(command=>{%>
+user.push("<%=command%>")
+         <%})%>
+var avatar = []
+<%savedGuild.commands.avatar.aliases.forEach(command=>{%>
+avatar.push("<%=command%>")
+         <%})%>
+var server = []
+<%savedGuild.commands.server.aliases.forEach(command=>{%>
+server.push("<%=command%>")
+         <%})%>
+var daily = []
+<%savedGuild.commands.daily.aliases.forEach(command=>{%>
+daily.push("<%=command%>")
+         <%})%>
+var rep = []
+<%savedGuild.commands.rep.aliases.forEach(command=>{%>
+rep.push("<%=command%>")
+         <%})%>
+var credits = []
+<%savedGuild.commands.credits.aliases.forEach(command=>{%>
+credits.push("<%=command%>")
+         <%})%>
+var ping = []
+<%savedGuild.commands.ping.aliases.forEach(command=>{%>
+ping.push("<%=command%>")
+         <%})%>
+//---
+var ban = []
+<%savedGuild.commands.ban.aliases.forEach(command=>{%>
+ban.push("<%=command%>")
+         <%})%>
+var unban = []
+<%savedGuild.commands.unban.aliases.forEach(command=>{%>
+unban.push("<%=command%>")
+         <%})%>
+var kick = []
+<%savedGuild.commands.kick.aliases.forEach(command=>{%>
+kick.push("<%=command%>")
+         <%})%>
+var mute = []
+<%savedGuild.commands.mute.aliases.forEach(command=>{%>
+mute.push("<%=command%>")
+         <%})%>
+var unmute = []
+<%savedGuild.commands.unmute.aliases.forEach(command=>{%>
+unmute.push("<%=command%>")
+         <%})%>
+var clear = []
+<%savedGuild.commands.clear.aliases.forEach(command=>{%>
+clear.push("<%=command%>")
+         <%})%>
+var lock = []
+<%savedGuild.commands.lock.aliases.forEach(command=>{%>
+lock.push("<%=command%>")
+         <%})%>
+var unlock = []
+<%savedGuild.commands.unlock.aliases.forEach(command=>{%>
+unlock.push("<%=command%>")
+         <%})%>
+
+$("#toggle_nav_btn").on('click', function() {
+  var str = $('.sidebar_main').css('transform');
+    var matrix = new WebKitCSSMatrix(str);
+    if(matrix.m41==0){
+      $(".sidebar_main").css("transform","translateX(100%)");
+    } else{
+      $(".sidebar_main").css("transform","translateX(0%)");
+    }
+})
+$('.wel-li').on('click', function() {
+  $('.wel-li').removeClass('active in');
+  $(this).addClass('active in');
+});
+function setTab(name) {
+  $('.lia').removeClass('active in');
+  $(`#${name}`).addClass("active in");
+}
+$("#backgroundli").on('click', function() {
+  setTab('background');
+})
+$("#avatarli").on('click', function() {
+  setTab('avatar');
+})
+$("#usernameli").on('click', function() {
+  setTab('username');
+})
+$(".savewel").unbind("click").click( async function(){
+await $.ajax({
+  type: "PUT",
+  url: `/servers/${$(".guild-avatar").prop("alt")}/welcome_settings`,
+  data: {
+channel:$(".channel").prop("value"),
+imagex:$(".imagex").prop("value"),
+imagey:$(".imagey").prop("value"),
+imagesx:$(".imagesx").prop("value"),
+imagesy:$(".imagesy").prop("value"),
+textx:$(".textx").prop("value"),
+texty:$(".texty").prop("value"),
+textsx:$(".textsx").prop("value"),
+textsy:$(".textsy").prop("value"),
+texts:$(".texts").prop("value"),
+imageurl:$(".imageurl").prop("value"),
+stagewidth:$(".stagewidth").prop("value"),
+stageheight:$(".stageheight").prop("value"),
+icontype:$(".icontype").prop("value"),
+textarea:$(".textarea").prop("value"),
+textcolor:$(".textcolor").prop("value"),
+},
+})
+$(".confo2").fadeOut(50)
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+})
+$(".closewel").on("click",function(){
+$(".confo2").fadeOut(50)
+})
+function confo2(){
+$(".confo2").fadeIn(300)
+}
+$(".channel").on("change",function(){
+confo2()
+})
+$("textarea").on("keypress keyup",function(){
+confo2()
+})
+let stage = new Konva.Stage({
+width: +(document.getElementById("stagewidth").value),
+height: +(document.getElementById("stageheight").value),
+container:"konvajs"
+
+})
+let layer = new Konva.Layer()
+    stage.add(layer);
+  var sources = {
+        icon1: 'https://cdn.discordapp.com/attachments/819530298119290920/831048823588913152/welcome-image.png',
+        icon2:'https://cdn.discordapp.com/attachments/701551367608729601/831084568374673478/download.png',
+        backround:document.getElementById("imageurl").value
+      };
+var image = new Image()
+image.src= sources.backround
+
+var background = new Konva.Image({
+width:stage.width(),
+height:stage.height(),
+image:image
+})
+
+       layer.add(background)
+  let text = new Konva.Text({
+        x:+(document.getElementById("tx").value),
+        y:+(document.getElementById("ty").value),
+       fontSize:+(document.getElementById("ts").value),
+       name:"text",
+       fill:`${document.getElementById("color-picker").value}`,
+      scaleX:(+(document.getElementById("tsx").value))/50,
+      scaleY:(+(document.getElementById("tsy").value))/50,
+        text:"UserName",
+        draggable: true,
+        fontFamily:"Roboto,Arial,sans-serif",
+        shadowOffset: { x: 1, y: 2 },
+          shadowColor: "black",
+          fontStyle:"bold",
+          align:`${$(".textalign").prop("value")}`,
+          width:130
+})
+
+
+layer.add(text);
+ var tr = new Konva.Transformer({
+        padding:5,
+        rotateEnabled	: false,
+        nodes: [text]
+
+      });
+ layer.add(tr);
+  
+var image2 = new Image()
+image2.src= sources.icon2
+
+var image1 = new Image()
+image1.src= sources.icon1
+if(document.getElementById("icons").value === "circle"){
+var crimg = image1
+}else{
+var crimg = image2
+}
+var circle = new Konva.Image({
+      x: +(document.getElementById("conx").value),
+      y: +(document.getElementById("cony").value),
+  scaleX:(+(document.getElementById("conw").value))/50,
+  scaleY:(+(document.getElementById("conh").value))/50,
+  draggable: true,
+name:"circle",
+image:crimg
+
+})
+  layer.add(circle) 
+ var tr2 = new Konva.Transformer({
+        rotateEnabled	: false,
+        nodes: [circle]
+
+      });
+    layer.add(tr2);
+
+tr2.visible(false)
+tr.visible(false)
+    
+
+layer.draw();
+$('#color-picker').spectrum({
+  type: "color",
+ preferredFormat: "hex",
+  showButtons: false,
+  showInput: true,
+  showPalette: true,
+   togglePaletteMoreText: 'more',
+    togglePaletteLessText: 'less',
+    palette: [["#9013fe", "#bd10e0", "#417505","#7ed321","#8b572a","#f8e71c","#f5a623","#d0021b"],["#9b9b9b","#4a4a4a","#000000","#b8e986","#50e3c2","#4a90e2","#ff00a9"]],
+    move: function(tinycolor) { 
+   $('.textcolor').val(`${$("#color-picker").spectrum("get").toHexString()}`)
+    text.fill($("#color-picker").spectrum("get").toHexString())
+    layer.batchDraw();
+    confo2()
+
+  },
+});
+stage.on('click tap', function (e) {
+if(e.target.hasName('circle')){
+setTimeout(() => {
+tr.visible(false)
+tr2.visible(true)
+layer.batchDraw();
+});}
+if(e.target.hasName('text')){
+setTimeout(() => {
+tr2.visible(false)
+tr.visible(true)
+layer.batchDraw();
+});}
+if (e.target === background || e.target === stage) {
+setTimeout(() => {
+tr.visible(false)
+tr2.visible(false)
+layer.batchDraw();
+});
+}
+});
+//--------
+circle.on('dragmove', function () {
+        updateText();
+      });
+     circle.on('transform', function () {
+        updateText();
+      });
+//--------
+text.on('dragmove', function () {
+        updateText();
+
+      });
+     text.on('transform', function () {
+        updateText();
+
+      });
+//----
+$("#icons").on("change",function icons() {
+if(document.getElementById("icons").value === "squere"){
+circle.image(image2)
+}else{
+circle.image(image1)
+}
+layer.draw()
+confo2()
+})
+$(".textalign").on("change",function textal() {
+if(document.getElementById("textalign").value == "center"){
+text.align('center')
+}else if(document.getElementById("textalign").value == "left"){
+text.align('left')
+}else if(document.getElementById("textalign").value == "right"){
+text.align('right')
+}
+layer.draw()
+confo2()
+})
+
+
+
+function updateText() {
+$('.cordenx').val(`${circle.absolutePosition().x}`)
+$('.cordeny').val(`${circle.absolutePosition().y}`)
+$('.cordenw').val(`${circle.scaleX()*50}`)
+$('.cordenh').val(`${circle.scaleY()*50}`)
+$('.textx').val(`${text.absolutePosition().x}`)
+$('.texty').val(`${text.absolutePosition().y}`)
+$('.texts').val(`${text.fontSize()}`)
+$('.textsy').val(`${text.scaleY()*50}`)
+$('.textsx').val(`${text.scaleX()*50}`)
+confo2()
+
+
+
+      }
+
+// add button event bindings
+
+$(document).ready(function(){
+   $('.cordenx').on('keypress paste',badr);
+   $('.cordeny').on('keyup paste',badr);
+  $('.cordenw').on('keypress paste',badr);
+   $('.cordenh').on('keyup paste',badr);
+   $('.textx').on('keypress paste',badr2);
+   $('.texty').on('keyup paste',badr2);
+  $('.texts').on('keypress paste',badr2);
+});
+$("#welcomeTab").on("click",function(){
+layer.batchDraw();
+
+})
+
+function badr(){
+confo2()
+  circle.position({
+    x: +(document.getElementById("conx").value),
+    y: +(document.getElementById("cony").value),
+  });
+
+}
+     function badr2(){
+text.position({
+    x: +(document.getElementById("tx").value),
+    y: +(document.getElementById("ty").value),
+  });
+text.fontSize(+(document.getElementById("tw").value))
+layer.draw();
+confo2()
+}
+
+$("input[type='Number']").change( function() {
+  circle.position({
+     x: +(document.getElementById("conx").value),
+    y: +(document.getElementById("cony").value),
+  });
+circle.scale({
+    x: (+(document.getElementById("conw").value))/50,
+    y: (+(document.getElementById("conh").value))/50
+})
+
+text.position({
+    x: +(document.getElementById("tx").value),
+    y: +(document.getElementById("ty").value),
+  });
+text.fontSize(+(document.getElementById("ts").value))
+
+layer.draw();
+confo2()
+});
+
+ 
+
+$("#imagefiled").on('change', function() {
+fileChange()
+});
+
+//------------------------
+function fileChange(){
+var file = document.getElementById('imagefiled');
+var form = new FormData();
+form.append("image", file.files[0])
+  $(".fileinput").hide()
+  $(".progessbar").show()
+
+var settings = {
+xhr: function() {
+    var xhr = new window.XMLHttpRequest();
+
+    xhr.upload.addEventListener("progress", 
+
+function(event) {
+if (event.lengthComputable) {
+var percentComplete = event.loaded / event.total;
+        percentComplete = parseInt(percentComplete * 100);
+$(".rc-progress-line-path").css("stroke-dasharray",`${percentComplete}px, 100px`)
+if (percentComplete === 100) {
+  $(".progessbar").hide()
+  $(".fileinput").show()
+$(".rc-progress-line-path").css("stroke-dasharray",`0px, 100px;`)
+
+    }
+    }
+    }
+, false);
+
+    return xhr;
+  },
+  "url": "https://api.imgbb.com/1/upload?key=fb23576d1554ebeabb851b9c8d74aeb4",
+  "method": "POST",
+  "timeout": 0,
+  "processData": false,
+  "mimeType": "multipart/form-data",
+  "contentType": false,
+  "data": form
+};
+
+
+$.ajax(settings).done(function (response) {
+var jx = JSON.parse(response)
+$('#imageurl').val(`${jx.data.url}`)
+
+
+ var imgc = new Image();
+   imgc.src = `${jx.data.url}`
+ imgc.onload = function getwidth() {
+
+
+
+var imagewidth = imgc.width
+var imageheight = imgc.height
+  var maxWidth = 500;
+  var maxHeight = 500;
+if((imagewidth > maxWidth)&&(imageheight < maxHeight)){
+var ratio = maxWidth / imagewidth,
+ width = imagewidth * ratio,
+height = imageheight * ratio
+console.log("1")
+}
+  if((imageheight > maxHeight)&&(imagewidth < maxWidth)){
+    var ratio = imageheight,
+    width = imagewidth * maxWidth/(ratio),
+   height = imageheight * maxHeight/(ratio)
+ console.log("2")
+
+      }
+
+if((imagewidth > maxWidth)&&(imageheight > maxHeight)){
+       var ratio = maxWidth / imagewidth,
+ width = imagewidth * ratio,
+ height = imageheight * ratio
+ console.log("3")
+
+}
+if((imageheight < maxHeight)&&(imagewidth < maxWidth)){
+  var ratio = maxWidth / imagewidth,
+  width = imagewidth * ratio,
+ height = imageheight * ratio
+ console.log("4")
+ 
+}
+
+stage.width(parseFloat(width).toFixed(0))
+stage.height(parseFloat(height).toFixed(0))
+$('.stagewidth').val(`${parseFloat(width).toFixed(0)}`)
+$('.stageheight').val(`${parseFloat(height).toFixed(0)}`)
+background.width(parseFloat(width).toFixed(0))
+background.height(parseFloat(height).toFixed(0))
+     
+
+background.image(imgc)
+stage.draw();
+confo2()
+  };
+
+
+});
+}
+</script>
+<script>
+$('.nav-link').on('click', function() {
+  $('.nav-link').removeClass('active');
+  $(this).addClass('active');
+});
+
+function setModule(name) {
+  $('section').hide();
+  $(`#${name}`).show();
+  $(`#${name}Tab`).addClass('active');
+}
+$("#settingTab").on('click', function() {
+  setModule('setting');
+if (window.matchMedia('(max-width: 500px)').matches) {
+  $(".sidebar_main").css("transform","translateX(100%)");
+}
+})
+
+$("#commanndsTab").on('click', function() {
+  setModule('commannds');
+if (window.matchMedia('(max-width: 500px)').matches) {
+  $(".sidebar_main").css("transform","translateX(100%)");
+}
+})
+$("#modTab").on('click', function() {
+  setModule('mod');
+if (window.matchMedia('(max-width: 500px)').matches) {
+  $(".sidebar_main").css("transform","translateX(100%)");
+}
+})
+$("#welcomeTab").on('click', function() {
+  setModule('welcome');
+if (window.matchMedia('(max-width: 500px)').matches) {
+  $(".sidebar_main").css("transform","translateX(100%)");
+}
+})
+
+$(".prefix").on('keydown change', function() {//prefix
+$(".confo").fadeIn(300);
+console.log('show')
+$(".btn-default").unbind("click").click( async function(){
+$(".confo").fadeOut(100)
+console.log('hide')
+  $(".prefix").val($(".prefix").prop("defaultValue"));
+})
+function tos(){
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+}
+$(".save-prefix").unbind("click").click( async function(){//prefix
+  $(this).addClass("running disabled")
+ await $.ajax({
+  type: "PUT",
+  url: `/servers/${$(".guild-avatar").prop("alt")}/general`,
+  data: {prefix:$(".prefix").prop("value")},
+})
+$(".confo").fadeOut(200)
+tos()
+$(".prefix").attr("value", $(".prefix").prop("value"));
+
+  $(this).removeClass("running disabled")
+
+})
+})
+$(".commandsonoff").on("click",async function(){//on-off-btn
+ var str=$('.cricel').css('transform');
+    var matrix=new WebKitCSSMatrix(str);
+if(matrix.m41==1){
+console.log("1")
+  $(".cmdonoff").css("background","rgb(136, 136, 136)");
+  $(".cricel").css("transform","translateX(111px)");
+  $(".box1").css("opacity","0");
+  $(".box2").css("opacity","1");
+await $.ajax({
+  type: "PUT",
+  url: `/cmd/${$(".guild-avatar").prop("alt")}/enabled`,
+  data: {data:false},
+})
+    } else{
+console.log("2")
+  $(".cmdonoff").css("background","rgb(0, 136, 0)");
+  $(".cricel").css("transform","translateX(1px)");
+  $(".box2").css("opacity","0");
+  $(".box1").css("opacity","1");
+await $.ajax({
+  type: "PUT",
+  url: `/cmd/${$(".guild-avatar").prop("alt")}/enabled`,
+  data: {data:true},
+})
+    }
+})
+/**********************profile*******************************************/
+$(".profileonoff").on("click",async function(){//on-off-btn
+ var str= $('.profilecricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".profilebox").css("background","rgb(136, 136, 136)");
+  $(".profilecricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".profilebox").css("background","rgb(226, 64, 158)");
+  $(".profilecricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************user*******************************************/
+$(".useronoff").on("click",async function(){//on-off-btn
+ var str= $('.usercricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".userbox").css("background","rgb(136, 136, 136)");
+  $(".usercricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".userbox").css("background","rgb(226, 64, 158)");
+  $(".usercricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************avatar*******************************************/
+$(".avataronoff").on("click",async function(){//on-off-btn
+ var str= $('.avatarcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".avatarbox").css("background","rgb(136, 136, 136)");
+  $(".avatarcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".avatarbox").css("background","rgb(226, 64, 158)");
+  $(".avatarcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************server*******************************************/
+$(".serveronoff").on("click",async function(){//on-off-btn
+ var str= $('.servercricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".serverbox").css("background","rgb(136, 136, 136)");
+  $(".servercricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".serverbox").css("background","rgb(226, 64, 158)");
+  $(".servercricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************daily*******************************************/
+$(".dailyonoff").on("click",async function(){//on-off-btn
+ var str= $('.dailycricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".dailybox").css("background","rgb(136, 136, 136)");
+  $(".dailycricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".dailybox").css("background","rgb(226, 64, 158)");
+  $(".dailycricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************rep*******************************************/
+$(".reponoff").on("click",async function(){//on-off-btn
+ var str= $('.repcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".repbox").css("background","rgb(136, 136, 136)");
+  $(".repcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".repbox").css("background","rgb(226, 64, 158)");
+  $(".repcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************rep*******************************************/
+$(".creditsonoff").on("click",async function(){//on-off-btn
+ var str= $('.creditscricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".creditsbox").css("background","rgb(136, 136, 136)");
+  $(".creditscricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".creditsbox").css("background","rgb(226, 64, 158)");
+  $(".creditscricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************ping*******************************************/
+$(".pingonoff").on("click",async function(){//on-off-btn
+ var str= $('.pingcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".pingbox").css("background","rgb(136, 136, 136)");
+  $(".pingcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".pingbox").css("background","rgb(226, 64, 158)");
+  $(".pingcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************ban*******************************************/
+$(".banonoff").on("click",async function(){//on-off-btn
+ var str= $('.bancricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".banbox").css("background","rgb(136, 136, 136)");
+  $(".bancricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".banbox").css("background","rgb(226, 64, 158)");
+  $(".bancricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************unban*******************************************/
+$(".unbanonoff").on("click",async function(){//on-off-btn
+ var str= $('.unbancricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".unbanbox").css("background","rgb(136, 136, 136)");
+  $(".unbancricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".unbanbox").css("background","rgb(226, 64, 158)");
+  $(".unbancricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************kick*******************************************/
+$(".kickonoff").on("click",async function(){//on-off-btn
+ var str= $('.kickcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".kickbox").css("background","rgb(136, 136, 136)");
+  $(".kickcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".kickbox").css("background","rgb(226, 64, 158)");
+  $(".kickcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************mute*******************************************/
+$(".muteonoff").on("click",async function(){//on-off-btn
+ var str= $('.mutecricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".mutebox").css("background","rgb(136, 136, 136)");
+  $(".mutecricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".mutebox").css("background","rgb(226, 64, 158)");
+  $(".mutecricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************unmute*******************************************/
+$(".unmuteonoff").on("click",async function(){//on-off-btn
+ var str= $('.unmutecricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".unmutebox").css("background","rgb(136, 136, 136)");
+  $(".unmutecricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".unmutebox").css("background","rgb(226, 64, 158)");
+  $(".unmutecricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************clear*******************************************/
+$(".clearonoff").on("click",async function(){//on-off-btn
+ var str= $('.clearcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".clearbox").css("background","rgb(136, 136, 136)");
+  $(".clearcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".clearbox").css("background","rgb(226, 64, 158)");
+  $(".clearcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************lock*******************************************/
+$(".lockonoff").on("click",async function(){//on-off-btn
+ var str= $('.lockcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".lockbox").css("background","rgb(136, 136, 136)");
+  $(".lockcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".lockbox").css("background","rgb(226, 64, 158)");
+  $(".lockcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+/**********************unlock*******************************************/
+$(".unlockonoff").on("click",async function(){//on-off-btn
+ var str= $('.unlockcricel').css('transform');
+console.log($(this).parent().parent().parent().find('div').first().find('div').first().text())
+  var matrix = new WebKitCSSMatrix(str);
+if(matrix.m41==2){
+  $(".unlockbox").css("background","rgb(136, 136, 136)");
+  $(".unlockcricel").css("transform","translateX(20px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:false},
+})
+    } else{
+  $(".unlockbox").css("background","rgb(226, 64, 158)");
+  $(".unlockcricel").css("transform","translateX(2px)");
+ await $.ajax({
+  type: "PUT",
+  url: `/cmdenable/${$(".guild-avatar").prop("alt")}/${$(this).parent().parent().parent().find('div').first().find('div').first().text()}`,
+  data: {data:true},
+})
+}
+})
+//******************************************************************/
+$(".colseedit").unbind("click").click( async function(){//hide-edit
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$(".showedit").hide()
+$("#react-select-13-input").css("width",2);
+})
+$(".css-2b097c-container").unbind("click").click( async function(){
+$(".css-2b097c-container").removeClass("formselect__control--is-focused")
+$(this).addClass("formselect__control--is-focused")
+$("#react-select-13-input").focus()
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+console.log("remove")
+$(".formselect__multi-value").remove()
+})
+//--------------------------------------------------------------------
+function add(){
+var  newWidth = $("#react-select-13-input").val().length * 10 +12
+  $("#react-select-13-input").css("width",newWidth);
+
+}
+
+document.getElementById("react-select-13-input").onkeydown = async function() {
+    var key = event.keyCode || event.charCode;
+    if( key == 8 ){
+if($("#react-select-13-input").width() <=2)return
+var newWidth =$("#react-select-13-input").val().length * 10 -10 + 2
+  $("#react-select-13-input").css("width",newWidth)
+}
+if(key == 13||key == 32){
+$(`
+<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${$("#react-select-13-input").prop("value")}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+`).insertBefore( ".shorts1" )
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+
+}
+};
+//-------------------------editprofile--------------------------------
+$(".editprofile").unbind("click").click( async function(){//edlit moveme
+profile.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var aliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/profile`,
+  data: {arr:aliases},
+})
+  await profile.pop();
+  profile = aliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$(".showedit").hide()
+$("#react-select-13-input").css("width",2);
+
+})
+
+})
+//-------------------------edituser--------------------------------
+$(".edituser").unbind("click").click( async function(){//edlit moveme
+user.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/user`,
+  data: {arr:paliases},
+})
+  await user.pop();
+  user = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editavatar--------------------------------
+$(".editavatar").unbind("click").click( async function(){//edlit moveme
+avatar.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/avatar`,
+  data: {arr:paliases},
+})
+  await avatar.pop();
+  avatar = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editserver--------------------------------
+$(".editserver").unbind("click").click( async function(){//edlit moveme
+server.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/server`,
+  data: {arr:paliases},
+})
+  await server.pop();
+  server = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editdaily--------------------------------
+$(".editdaily").unbind("click").click( async function(){//edlit moveme
+daily.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/daily`,
+  data: {arr:paliases},
+})
+  await daily.pop();
+  daily = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editrep--------------------------------
+
+$(".editrep").unbind("click").click( async function(){//edlit moveme
+rep.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/rep`,
+  data: {arr:paliases},
+})
+  await rep.pop();
+  rep = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editcredits--------------------------------
+
+$(".editcredits").unbind("click").click( async function(){//edlit moveme
+credits.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/credits`,
+  data: {arr:paliases},
+})
+  await credits.pop();
+  credits = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editping--------------------------------
+
+$(".editping").unbind("click").click( async function(){//edlit moveme
+ping.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/ping`,
+  data: {arr:paliases},
+})
+  await ping.pop();
+  ping = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editban--------------------------------
+$(".editban").unbind("click").click( async function(){//edlit moveme
+ban.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/ban`,
+  data: {arr:paliases},
+})
+  await ban.pop();
+  ban = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editunban--------------------------------
+$(".editunban").unbind("click").click( async function(){//edlit moveme
+unban.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/unban`,
+  data: {arr:paliases},
+})
+  await unban.pop();
+  unban = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editkick--------------------------------
+$(".editkick").unbind("click").click( async function(){//edlit moveme
+kick.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/kick`,
+  data: {arr:paliases},
+})
+  await kick.pop();
+  kick = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editmute--------------------------------
+$(".editmute").unbind("click").click( async function(){//edlit moveme
+mute.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/mute`,
+  data: {arr:paliases},
+})
+  await mute.pop();
+  mute = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editunmute--------------------------------
+$(".editunmute").unbind("click").click( async function(){//edlit moveme
+unmute.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/unmute`,
+  data: {arr:paliases},
+})
+  await unmute.pop();
+  unmute = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editclear--------------------------------
+$(".editclear").unbind("click").click( async function(){//edlit moveme
+clear.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/clear`,
+  data: {arr:paliases},
+})
+  await clear.pop();
+  clear = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editlock--------------------------------
+$(".editlock").unbind("click").click( async function(){//edlit moveme
+lock.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/lock`,
+  data: {arr:paliases},
+})
+  await lock.pop();
+  lock = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+//-------------------------editunlock--------------------------------
+$(".editunlock").unbind("click").click( async function(){//edlit moveme
+unlock.forEach((cmd)=>{
+$(`<div class="css-1rhbuit-multiValue formselect__multi-value">
+  <div class="css-12jo7m5 formselect__multi-value__label">${cmd}</div>
+  <div class="css-xb97g8 formselect__multi-value__remove">
+    <svg
+      height="14"
+      width="14"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      focusable="false"
+      class="css-19bqh2r"
+    >
+      <path
+        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+      ></path>
+    </svg>
+  </div>
+</div>
+`).insertBefore( ".shorts1" )
+})
+$(".formselect__multi-value__remove").on("click",function(){//remove this
+$(this).parent().remove()
+})
+$(".css-1wy0on6").unbind("click").click( async function(){//remove all
+$(".formselect__multi-value").remove()
+})
+$(".showedit").fadeIn(150)
+$(".commandSave .btn").unbind("click").click( async function(){
+var paliases = $('.css-12jo7m5').map(function(){ return $(this).text().replace(" ","") }).get()
+await $.ajax({
+  type: "PUT",
+  url: `/commands/${$(".guild-avatar").prop("alt")}/unlock`,
+  data: {arr:paliases},
+})
+  await unlock.pop();
+  unlock = paliases
+Toastify({
+ text: "Success 👌",
+  offset: { x: 350, y: 60 },
+ duration: 2500
+}).showToast();
+$(".formselect__multi-value").remove()
+$("#react-select-13-input").val(null); 
+$("#react-select-13-input").css("width",2);
+$(".showedit").hide()
+})
+$("#react-select-13-input").bind('keypress', function() {
+add()
+})
+})
+
+</script>
+</body>
+

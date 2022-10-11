@@ -1,0 +1,11 @@
+{
+  "bot": {
+      "id": "825585979648901141",
+      "token": "ODI1NTg1OTc5NjQ4OTAxMTQx.YGAE3A.7VYWF2l5Kb-0nARftGPyJg7P6Mk",
+      "secret": "WTWmpvJdM6k6uLJGNYFX55GocQ4mGPc_"
+  },
+  "dashboard": {
+      "url": "https://rhyno-bot--hhh.glitch.me"
+  },
+  "mongoURL": "mongodb+srv://admin:rCPVOGPCcwcEFvkS@cluster0.xv8gm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
